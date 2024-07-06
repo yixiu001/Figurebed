@@ -14,7 +14,7 @@ def generate_index_html(root_dir):
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Image Index</title>
+        <title>一休github简易图床系统</title>
         <style>
             body {
                 font-family: Arial, sans-serif;
