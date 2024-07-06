@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 python generate_index_html.py
 

@@ -14,64 +14,58 @@
             h1 {
                 text-align: center;
             }
-            .gallery {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
+            table {
+                width: 100%;
+                border-collapse: collapse;
             }
-            .gallery-item {
-                margin: 10px;
-                border: 1px solid #ccc;
-                background-color: #fff;
-                box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+            th, td {
+                border: 1px solid #ddd;
+                padding: 8px;
             }
-            .gallery-item img {
-                max-width: 100%;
+            th {
+                background-color: #f2f2f2;
+                text-align: left;
+            }
+            img {
+                max-width: 100px;
                 height: auto;
-                display: block;
-            }
-            .gallery-item a {
-                text-decoration: none;
-                color: #333;
-                display: block;
-                padding: 10px;
-                text-align: center;
             }
         </style>
     </head>
     <body>
         <h1>Image Index</h1>
-        <div class="gallery">
+        <table>
+            <tr>
+                <th>缩略图</th>
+                <th>HTTPS 访问地址</th>
+                <th>jsdelivr CDN 加速地址</th>
+            </tr>
     
-                <div class="gallery-item">
-                    <a href="blog/bg/bg4.jpg" target="_blank">
-                        <img src="blog/bg/bg4.jpg" alt="bg4.jpg">
-                        bg4.jpg
-                    </a>
-                </div>
+                <tr>
+                    <td><img src="https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg4.jpg" alt="bg4.jpg"></td>
+                    <td><a href="https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg4.jpg" target="_blank">https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg4.jpg</a></td>
+                    <td><a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg4.jpg" target="_blank">https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg4.jpg</a></td>
+                </tr>
                 
-                <div class="gallery-item">
-                    <a href="blog/bg/bg1.jpg" target="_blank">
-                        <img src="blog/bg/bg1.jpg" alt="bg1.jpg">
-                        bg1.jpg
-                    </a>
-                </div>
+                <tr>
+                    <td><img src="https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg1.jpg" alt="bg1.jpg"></td>
+                    <td><a href="https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg1.jpg" target="_blank">https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg1.jpg</a></td>
+                    <td><a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg1.jpg" target="_blank">https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg1.jpg</a></td>
+                </tr>
                 
-                <div class="gallery-item">
-                    <a href="blog/bg/bg3.jpg" target="_blank">
-                        <img src="blog/bg/bg3.jpg" alt="bg3.jpg">
-                        bg3.jpg
-                    </a>
-                </div>
+                <tr>
+                    <td><img src="https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg3.jpg" alt="bg3.jpg"></td>
+                    <td><a href="https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg3.jpg" target="_blank">https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg3.jpg</a></td>
+                    <td><a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg3.jpg" target="_blank">https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg3.jpg</a></td>
+                </tr>
                 
-                <div class="gallery-item">
-                    <a href="blog/bg/bg2.jpg" target="_blank">
-                        <img src="blog/bg/bg2.jpg" alt="bg2.jpg">
-                        bg2.jpg
-                    </a>
-                </div>
+                <tr>
+                    <td><img src="https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg2.jpg" alt="bg2.jpg"></td>
+                    <td><a href="https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg2.jpg" target="_blank">https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg2.jpg</a></td>
+                    <td><a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg2.jpg" target="_blank">https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg2.jpg</a></td>
+                </tr>
                 
-        </div>
+        </table>
     </body>
     </html>
     

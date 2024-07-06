@@ -1,6 +1,13 @@
 import os
 
+# 在这里定义GitHub用户名和仓库名称
+GITHUB_USERNAME = 'yixiu001'
+GITHUB_REPOSITORY = 'Figurebed'
+
 def generate_index_html(root_dir):
+    base_url = f"https://github.com/{GITHUB_USERNAME}/{GITHUB_REPOSITORY}/raw/main/"
+    cdn_url = f"https://cdn.jsdelivr.net/gh/{GITHUB_USERNAME}/{GITHUB_REPOSITORY}@main/"
+
     html_content = '''
     <!DOCTYPE html>
     <html lang="en">
@@ -17,51 +24,50 @@ def generate_index_html(root_dir):
             h1 {
                 text-align: center;
             }
-            .gallery {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
+            table {
+                width: 100%;
+                border-collapse: collapse;
             }
-            .gallery-item {
-                margin: 10px;
-                border: 1px solid #ccc;
-                background-color: #fff;
-                box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+            th, td {
+                border: 1px solid #ddd;
+                padding: 8px;
             }
-            .gallery-item img {
-                max-width: 100%;
+            th {
+                background-color: #f2f2f2;
+                text-align: left;
+            }
+            img {
+                max-width: 100px;
                 height: auto;
-                display: block;
-            }
-            .gallery-item a {
-                text-decoration: none;
-                color: #333;
-                display: block;
-                padding: 10px;
-                text-align: center;
             }
         </style>
     </head>
     <body>
         <h1>Image Index</h1>
-        <div class="gallery">
+        <table>
+            <tr>
+                <th>缩略图</th>
+                <th>HTTPS 访问地址</th>
+                <th>jsdelivr CDN 加速地址</th>
+            </tr>
     '''
 
     for subdir, _, files in os.walk(root_dir):
         for file in files:
             if file.lower().endswith(('.png', '.jpg', '.jpeg', '.gif', '.bmp', '.tiff')):
                 file_path = os.path.relpath(os.path.join(subdir, file), root_dir)
+                https_url = base_url + file_path
+                cdn_url_complete = cdn_url + file_path
                 html_content += f'''
-                <div class="gallery-item">
-                    <a href="{file_path}" target="_blank">
-                        <img src="{file_path}" alt="{file}">
-                        {file}
-                    </a>
-                </div>
+                <tr>
+                    <td><img src="{https_url}" alt="{file}"></td>
+                    <td><a href="{https_url}" target="_blank">{https_url}</a></td>
+                    <td><a href="{cdn_url_complete}" target="_blank">{cdn_url_complete}</a></td>
+                </tr>
                 '''
 
     html_content += '''
-        </div>
+        </table>
     </body>
     </html>
     '''
@@ -71,4 +77,3 @@ def generate_index_html(root_dir):
 
 if __name__ == "__main__":
     generate_index_html('.')
-
