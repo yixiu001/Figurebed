@@ -8,5 +8,5 @@
 https://cdn.staticaly.com/gh/user/repo@version/file
 
 # 比如我的示例仓库就是加速地址就是这个大家可以参考参考
-https://cdn.staticaly.com/gh/fomalhaut1998/pic_bed@main/img/p2.webp
+https://cdn.staticaly.com/gh/yixiu001/Figurebed@main/blog/bg/bg2.jpg
 ```
