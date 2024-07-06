@@ -43,7 +43,7 @@ def generate_index_html(root_dir):
         </style>
     </head>
     <body>
-        <h1>Image Index</h1>
+        <h1>一休github简易图床系统</h1>
         <table>
             <tr>
                 <th>缩略图</th>
