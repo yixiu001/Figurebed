@@ -5,9 +5,11 @@ body {
     margin: 0;
     background-color: #f0f0f0;
 }
+
 h1 {
     text-align: center;
 }
+
 .sidebar {
     width: 25%;
     overflow-y: auto;
@@ -15,11 +17,13 @@ h1 {
     background-color: #f7f7f7;
     border-right: 1px solid #ddd;
 }
+
 .content {
     flex: 1;
     padding: 20px;
     overflow-y: auto;
 }
+
 .collapsible {
     cursor: pointer;
     padding: 10px;
@@ -31,31 +35,38 @@ h1 {
     width: 100%;
     transition: 0.4s;
 }
+
 .active, .collapsible:hover {
     background-color: #ccc;
 }
+
 .content-section {
     padding: 0 18px;
     display: none;
     overflow: hidden;
     background-color: #f9f9f9;
 }
+
 table {
     width: 100%;
     border-collapse: collapse;
 }
+
 th, td {
     border: 1px solid #ddd;
     padding: 8px;
 }
+
 th {
     background-color: #f2f2f2;
     text-align: left;
 }
+
 img {
     max-width: 100px;
     height: auto;
 }
+
 .link {
     color: blue;
     cursor: pointer;

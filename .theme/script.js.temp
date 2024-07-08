@@ -1,11 +1,8 @@
 document.addEventListener("DOMContentLoaded", function() {
-    var githubUsername = 'GITHUB_USERNAME';
-    var githubRepository = 'GITHUB_REPOSITORY';
-
     fetch('files.json')
         .then(response => response.json())
         .then(fileStructure => {
-            function populateDirectory(data, parentElement = document.getElementById('directory'), path = '') {
+            function populateDirectory(data, parentElement, path = '') {
                 for (const key in data) {
                     if (typeof data[key] === 'object' && !data[key].https_url) {
                         const folder = document.createElement('div');
@@ -19,51 +16,48 @@ document.addEventListener("DOMContentLoaded", function() {
                     }
                 }
 
-                var coll = document.getElementsByClassName("collapsible");
-                for (var i = 0; i < coll.length; i++) {
+                const coll = document.getElementsByClassName("collapsible");
+                for (let i = 0; i < coll.length; i++) {
                     coll[i].addEventListener("click", function() {
-                        var active = document.querySelector('.collapsible.active');
-                        if (active && active !== this) {
-                            active.classList.remove('active');
-                            active.nextElementSibling.style.display = 'none';
-                        }
-                        this.classList.toggle("active");
-                        var content = this.nextElementSibling;
+                        const content = this.nextElementSibling;
                         if (content.style.display === "block") {
                             content.style.display = "none";
                         } else {
                             content.style.display = "block";
                         }
+                        this.classList.toggle("active");
                         populateTable(this.getAttribute("data-path"));
                     });
                 }
             }
 
             function populateTable(directory) {
-                var imageTable = document.getElementById("image-table");
+                const imageTable = document.getElementById("image-table");
                 while (imageTable.rows.length > 1) {
                     imageTable.deleteRow(1);
                 }
-                var images = getImagesFromDirectory(fileStructure, directory);
-                images.forEach(function(item) {
-                    var row = imageTable.insertRow();
-                    var cell1 = row.insertCell(0);
-                    var cell2 = row.insertCell(1);
-                    var cell3 = row.insertCell(2);
-                    cell1.innerHTML = '<img src="' + item.https_url + '" alt="' + item.name + '">';
-                    cell2.innerHTML = '<span class="link" onclick="copyToClipboard(\'' + item.https_url + '\')">' + item.https_url + '</span>';
-                    cell3.innerHTML = '<span class="link" onclick="copyToClipboard(\'' + item.cdn_url + '\')">' + item.cdn_url + '</span>';
+
+                const images = getImagesFromDirectory(fileStructure, directory);
+                images.forEach(item => {
+                    const row = imageTable.insertRow();
+                    const cell1 = row.insertCell(0);
+                    const cell2 = row.insertCell(1);
+                    const cell3 = row.insertCell(2);
+
+                    cell1.innerHTML = `<img src="${item.https_url}" alt="${item.name}">`;
+                    cell2.innerHTML = `<span class="link" onclick="copyToClipboard('${item.https_url}')">${item.https_url}</span>`;
+                    cell3.innerHTML = `<span class="link" onclick="copyToClipboard('${item.cdn_url}')">${item.cdn_url}</span>`;
                 });
             }
 
             function getImagesFromDirectory(data, directory) {
-                var images = [];
-                var dirParts = directory.split('/').filter(part => part);
+                const images = [];
+                const dirParts = directory.split('/').filter(part => part);
 
                 function traverse(currentData, currentPath = '') {
                     for (const key in currentData) {
                         if (typeof currentData[key] === 'object' && !currentData[key].https_url) {
-                            if (dirParts[0] === key) {
+                            if (dirParts.length === 0 || dirParts[0] === key) {
                                 dirParts.shift();
                                 traverse(currentData[key], currentPath + '/' + key);
                             }
@@ -91,9 +85,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 });
             }
 
-            populateDirectory(fileStructure);
-            if (Object.keys(fileStructure).length > 0) {
-                populateTable(Object.keys(fileStructure)[0]);
-            }
+            const directoryElement = document.getElementById('directory');
+            populateDirectory(fileStructure, directoryElement);
         });
 });
