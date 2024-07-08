@@ -2,14 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var githubUsername = 'GITHUB_USERNAME';
     var githubRepository = 'GITHUB_REPOSITORY';
 
-    function fetchFileStructure() {
-        fetch('files.json')
-            .then(response => response.json())
-            .then(data => {
-                populateDirectory(data);
-                populateTable(Object.keys(data)[0]);
-            });
-    }
+    var fileStructure = JSON.parse(document.querySelector('script[src="files.json"]').innerHTML);
 
     function populateDirectory(data, parentElement = document.getElementById('directory'), level = 0) {
         for (const key in data) {
@@ -47,24 +40,20 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function populateTable(directory) {
-        fetch('files.json')
-            .then(response => response.json())
-            .then(data => {
-                var imageTable = document.getElementById("image-table");
-                while (imageTable.rows.length > 1) {
-                    imageTable.deleteRow(1);
-                }
-                var images = getImagesFromDirectory(data, directory);
-                images.forEach(function(item) {
-                    var row = imageTable.insertRow();
-                    var cell1 = row.insertCell(0);
-                    var cell2 = row.insertCell(1);
-                    var cell3 = row.insertCell(2);
-                    cell1.innerHTML = '<img src="' + item.https_url + '" alt="' + item.name + '">';
-                    cell2.innerHTML = '<span class="link" onclick="copyToClipboard(\'' + item.https_url + '\')">' + item.https_url + '</span>';
-                    cell3.innerHTML = '<span class="link" onclick="copyToClipboard(\'' + item.cdn_url + '\')">' + item.cdn_url + '</span>';
-                });
-            });
+        var imageTable = document.getElementById("image-table");
+        while (imageTable.rows.length > 1) {
+            imageTable.deleteRow(1);
+        }
+        var images = getImagesFromDirectory(fileStructure, directory);
+        images.forEach(function(item) {
+            var row = imageTable.insertRow();
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+            cell1.innerHTML = '<img src="' + item.https_url + '" alt="' + item.name + '">';
+            cell2.innerHTML = '<span class="link" onclick="copyToClipboard(\'' + item.https_url + '\')">' + item.https_url + '</span>';
+            cell3.innerHTML = '<span class="link" onclick="copyToClipboard(\'' + item.cdn_url + '\')">' + item.cdn_url + '</span>';
+        });
     }
 
     function getImagesFromDirectory(data, directory) {
@@ -73,21 +62,12 @@ document.addEventListener("DOMContentLoaded", function() {
             if (typeof data[key] === 'object' && !data[key].https_url) {
                 images = images.concat(getImagesFromDirectory(data[key], directory + '/' + key));
             } else if (typeof data[key] === 'object' && data[key].https_url) {
-                if (directory === '') {
+                if (directory === '' || directory.split('/').indexOf(key.split('/')[0]) !== -1) {
                     images.push({
                         name: key,
                         https_url: data[key].https_url,
                         cdn_url: data[key].cdn_url
                     });
-                } else {
-                    var parts = directory.split('/');
-                    if (parts[parts.length - 1] === key.split('/')[0]) {
-                        images.push({
-                            name: key,
-                            https_url: data[key].https_url,
-                            cdn_url: data[key].cdn_url
-                        });
-                    }
                 }
             }
         }
@@ -102,5 +82,8 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    fetchFileStructure();
+    populateDirectory(fileStructure);
+    if (Object.keys(fileStructure).length > 0) {
+        populateTable(Object.keys(fileStructure)[0]);
+    }
 });
