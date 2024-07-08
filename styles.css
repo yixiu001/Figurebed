@@ -1,0 +1,62 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+h1 {
+    text-align: center;
+}
+.sidebar {
+    width: 25%;
+    overflow-y: auto;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-right: 1px solid #ddd;
+}
+.content {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+.collapsible {
+    cursor: pointer;
+    padding: 10px;
+    text-align: left;
+    background-color: #f2f2f2;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    width: 100%;
+    transition: 0.4s;
+}
+.active, .collapsible:hover {
+    background-color: #ccc;
+}
+.content-section {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: #f9f9f9;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+th {
+    background-color: #f2f2f2;
+    text-align: left;
+}
+img {
+    max-width: 100px;
+    height: auto;
+}
+.link {
+    color: blue;
+    cursor: pointer;
+}

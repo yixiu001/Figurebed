@@ -15,70 +15,7 @@ def generate_index_html(root_dir):
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>一休github简易图床系统</title>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                display: flex;
-                height: 100vh;
-                margin: 0;
-                background-color: #f0f0f0;
-            }
-            h1 {
-                text-align: center;
-            }
-            .sidebar {
-                width: 25%;
-                overflow-y: auto;
-                padding: 20px;
-                background-color: #f7f7f7;
-                border-right: 1px solid #ddd;
-            }
-            .content {
-                flex: 1;
-                padding: 20px;
-                overflow-y: auto;
-            }
-            .collapsible {
-                cursor: pointer;
-                padding: 10px;
-                text-align: left;
-                background-color: #f2f2f2;
-                border: none;
-                outline: none;
-                font-size: 15px;
-                width: 100%;
-                transition: 0.4s;
-            }
-            .active, .collapsible:hover {
-                background-color: #ccc;
-            }
-            .content-section {
-                padding: 0 18px;
-                display: none;
-                overflow: hidden;
-                background-color: #f9f9f9;
-            }
-            table {
-                width: 100%;
-                border-collapse: collapse;
-            }
-            th, td {
-                border: 1px solid #ddd;
-                padding: 8px;
-            }
-            th {
-                background-color: #f2f2f2;
-                text-align: left;
-            }
-            img {
-                max-width: 100px;
-                height: auto;
-            }
-            .link {
-                color: blue;
-                cursor: pointer;
-            }
-        </style>
+        <link rel="stylesheet" href="styles.css">
     </head>
     <body>
         <div class="sidebar">
@@ -132,62 +69,11 @@ def generate_index_html(root_dir):
     html_content += '''
             </table>
         </div>
+        <script src="script.js"></script>
         <script>
-            var coll = document.getElementsByClassName("collapsible");
-            var imageTable = document.getElementById("image-table");
             var tableContent = ''' + str(table_content) + ''';
             var firstDirectory = ''' + '"' + first_directory + '"' + ''';
-
-            function populateTable(directory) {
-                while (imageTable.rows.length > 1) {
-                    imageTable.deleteRow(1);
-                }
-                if (tableContent[directory]) {
-                    tableContent[directory].forEach(function(item) {
-                        var row = imageTable.insertRow();
-                        var cell1 = row.insertCell(0);
-                        var cell2 = row.insertCell(1);
-                        var cell3 = row.insertCell(2);
-                        cell1.innerHTML = '<img src="' + item[1] + '" alt="' + item[0] + '">';
-                        cell2.innerHTML = '<span class="link" onclick="copyToClipboard(\'' + item[1] + '\')">' + item[1] + '</span>';
-                        cell3.innerHTML = '<span class="link" onclick="copyToClipboard(\'' + item[2] + '\')">' + item[2] + '</span>';
-                    });
-                }
-            }
-
-            for (var i = 0; i < coll.length; i++) {
-                coll[i].addEventListener("click", function() {
-                    var active = document.querySelector('.collapsible.active');
-                    if (active && active !== this) {
-                        active.classList.remove('active');
-                        active.nextElementSibling.style.display = 'none';
-                    }
-                    this.classList.toggle("active");
-                    var content = this.nextElementSibling;
-                    if (content.style.display === "block") {
-                        content.style.display = "none";
-                    } else {
-                        content.style.display = "block";
-                    }
-                    populateTable(this.getAttribute("data-path"));
-                });
-            }
-
-            function copyToClipboard(text) {
-                navigator.clipboard.writeText(text).then(function() {
-                    alert('链接已复制: ' + text);
-                }, function(err) {
-                    console.error('复制失败: ', err);
-                });
-            }
-
-            // 默认展开第一个目录并显示其内容
-            if (firstDirectory) {
-                populateTable(firstDirectory);
-                var firstCollapsible = document.querySelector('.collapsible[data-path="' + firstDirectory + '"]');
-                firstCollapsible.classList.add("active");
-                firstCollapsible.nextElementSibling.style.display = "block";
-            }
+            initCollapsible(tableContent, firstDirectory);
         </script>
     </body>
     </html>
