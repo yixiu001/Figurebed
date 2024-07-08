@@ -14,17 +14,31 @@
             h1 {
                 text-align: center;
             }
-            table {
-                width: 100%;
-                border-collapse: collapse;
+            .directory {
+                margin: 10px 0;
             }
-            th, td {
-                border: 1px solid #ddd;
-                padding: 8px;
+            .file {
+                margin-left: 20px;
             }
-            th {
-                background-color: #f2f2f2;
+            .collapsible {
+                cursor: pointer;
+                padding: 10px;
                 text-align: left;
+                background-color: #f2f2f2;
+                border: none;
+                outline: none;
+                font-size: 15px;
+                width: 100%;
+                transition: 0.4s;
+            }
+            .active, .collapsible:hover {
+                background-color: #ccc;
+            }
+            .content {
+                padding: 0 18px;
+                display: none;
+                overflow: hidden;
+                background-color: #f9f9f9;
             }
             img {
                 max-width: 100px;
@@ -33,39 +47,403 @@
         </style>
     </head>
     <body>
-        <h1>一休github简易图床系统</h1>
-        <table>
-            <tr>
-                <th>缩略图</th>
-                <th>HTTPS 访问地址</th>
-                <th>jsdelivr CDN 加速地址</th>
-            </tr>
+        <h1>Image Index</h1>
     
-                <tr>
-                    <td><img src="https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg4.jpg" alt="bg4.jpg"></td>
-                    <td><a href="https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg4.jpg" target="_blank">https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg4.jpg</a></td>
-                    <td><a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg4.jpg" target="_blank">https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg4.jpg</a></td>
-                </tr>
+                <button class="collapsible">.git</button>
+                <div class="content">
+                    
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;hooks</button>
+                <div class="content">
+                    
+                </div>
                 
-                <tr>
-                    <td><img src="https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg1.jpg" alt="bg1.jpg"></td>
-                    <td><a href="https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg1.jpg" target="_blank">https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg1.jpg</a></td>
-                    <td><a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg1.jpg" target="_blank">https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg1.jpg</a></td>
-                </tr>
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;info</button>
+                <div class="content">
+                    
+                </div>
                 
-                <tr>
-                    <td><img src="https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg3.jpg" alt="bg3.jpg"></td>
-                    <td><a href="https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg3.jpg" target="_blank">https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg3.jpg</a></td>
-                    <td><a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg3.jpg" target="_blank">https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg3.jpg</a></td>
-                </tr>
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;logs</button>
+                <div class="content">
+                    
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;refs</button>
+                <div class="content">
+                    
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;heads</button>
+                <div class="content">
+                    
+                </div>
                 
-                <tr>
-                    <td><img src="https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg2.jpg" alt="bg2.jpg"></td>
-                    <td><a href="https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg2.jpg" target="_blank">https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg2.jpg</a></td>
-                    <td><a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg2.jpg" target="_blank">https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg2.jpg</a></td>
-                </tr>
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;remotes</button>
+                <div class="content">
+                    
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;origin</button>
+                <div class="content">
+                    
+                </div>
                 
-        </table>
+                </div>
+                
+                </div>
+                
+                </div>
+                
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;objects</button>
+                <div class="content">
+                    
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;09</button>
+                <div class="content">
+                    
+                </div>
+                
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0a</button>
+                <div class="content">
+                    
+                </div>
+                
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0c</button>
+                <div class="content">
+                    
+                </div>
+                
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;15</button>
+                <div class="content">
+                    
+                </div>
+                
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;16</button>
+                <div class="content">
+                    
+                </div>
+                
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;22</button>
+                <div class="content">
+                    
+                </div>
+                
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;25</button>
+                <div class="content">
+                    
+                </div>
+                
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2c</button>
+                <div class="content">
+                    
+                </div>
+                
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;34</button>
+                <div class="content">
+                    
+                </div>
+                
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;35</button>
+                <div class="content">
+                    
+                </div>
+                
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3b</button>
+                <div class="content">
+                    
+                </div>
+                
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;45</button>
+                <div class="content">
+                    
+                </div>
+                
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4a</button>
+                <div class="content">
+                    
+                </div>
+                
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4b</button>
+                <div class="content">
+                    
+                </div>
+                
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;50</button>
+                <div class="content">
+                    
+                </div>
+                
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;52</button>
+                <div class="content">
+                    
+                </div>
+                
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;54</button>
+                <div class="content">
+                    
+                </div>
+                
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;56</button>
+                <div class="content">
+                    
+                </div>
+                
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;65</button>
+                <div class="content">
+                    
+                </div>
+                
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;67</button>
+                <div class="content">
+                    
+                </div>
+                
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;69</button>
+                <div class="content">
+                    
+                </div>
+                
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;74</button>
+                <div class="content">
+                    
+                </div>
+                
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;84</button>
+                <div class="content">
+                    
+                </div>
+                
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;85</button>
+                <div class="content">
+                    
+                </div>
+                
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;86</button>
+                <div class="content">
+                    
+                </div>
+                
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;88</button>
+                <div class="content">
+                    
+                </div>
+                
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;90</button>
+                <div class="content">
+                    
+                </div>
+                
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;95</button>
+                <div class="content">
+                    
+                </div>
+                
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;97</button>
+                <div class="content">
+                    
+                </div>
+                
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;98</button>
+                <div class="content">
+                    
+                </div>
+                
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9a</button>
+                <div class="content">
+                    
+                </div>
+                
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a2</button>
+                <div class="content">
+                    
+                </div>
+                
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ac</button>
+                <div class="content">
+                    
+                </div>
+                
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bf</button>
+                <div class="content">
+                    
+                </div>
+                
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c1</button>
+                <div class="content">
+                    
+                </div>
+                
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c4</button>
+                <div class="content">
+                    
+                </div>
+                
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d1</button>
+                <div class="content">
+                    
+                </div>
+                
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d5</button>
+                <div class="content">
+                    
+                </div>
+                
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d6</button>
+                <div class="content">
+                    
+                </div>
+                
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d9</button>
+                <div class="content">
+                    
+                </div>
+                
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e6</button>
+                <div class="content">
+                    
+                </div>
+                
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e9</button>
+                <div class="content">
+                    
+                </div>
+                
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ea</button>
+                <div class="content">
+                    
+                </div>
+                
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;eb</button>
+                <div class="content">
+                    
+                </div>
+                
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f2</button>
+                <div class="content">
+                    
+                </div>
+                
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f3</button>
+                <div class="content">
+                    
+                </div>
+                
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f6</button>
+                <div class="content">
+                    
+                </div>
+                
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fc</button>
+                <div class="content">
+                    
+                </div>
+                
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;info</button>
+                <div class="content">
+                    
+                </div>
+                
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pack</button>
+                <div class="content">
+                    
+                </div>
+                
+                </div>
+                
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;refs</button>
+                <div class="content">
+                    
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;heads</button>
+                <div class="content">
+                    
+                </div>
+                
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;remotes</button>
+                <div class="content">
+                    
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;origin</button>
+                <div class="content">
+                    
+                </div>
+                
+                </div>
+                
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tags</button>
+                <div class="content">
+                    
+                </div>
+                
+                </div>
+                
+                </div>
+                
+                <button class="collapsible">.github</button>
+                <div class="content">
+                    
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;workflows</button>
+                <div class="content">
+                    
+                </div>
+                
+                </div>
+                
+                <button class="collapsible">blog</button>
+                <div class="content">
+                    
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;bg</button>
+                <div class="content">
+                    
+                <div class="file">
+                    <img src="https://github.com/your_username/your_repository/raw/main/blog/bg/bg1.jpg" alt="bg1.jpg"><br>
+                    <a href="https://github.com/your_username/your_repository/raw/main/blog/bg/bg1.jpg" target="_blank">https://github.com/your_username/your_repository/raw/main/blog/bg/bg1.jpg</a><br>
+                    <a href="https://cdn.jsdelivr.net/gh/your_username/your_repository@main/blog/bg/bg1.jpg" target="_blank">https://cdn.jsdelivr.net/gh/your_username/your_repository@main/blog/bg/bg1.jpg</a>
+                </div>
+                
+                <div class="file">
+                    <img src="https://github.com/your_username/your_repository/raw/main/blog/bg/bg2.jpg" alt="bg2.jpg"><br>
+                    <a href="https://github.com/your_username/your_repository/raw/main/blog/bg/bg2.jpg" target="_blank">https://github.com/your_username/your_repository/raw/main/blog/bg/bg2.jpg</a><br>
+                    <a href="https://cdn.jsdelivr.net/gh/your_username/your_repository@main/blog/bg/bg2.jpg" target="_blank">https://cdn.jsdelivr.net/gh/your_username/your_repository@main/blog/bg/bg2.jpg</a>
+                </div>
+                
+                <div class="file">
+                    <img src="https://github.com/your_username/your_repository/raw/main/blog/bg/bg3.jpg" alt="bg3.jpg"><br>
+                    <a href="https://github.com/your_username/your_repository/raw/main/blog/bg/bg3.jpg" target="_blank">https://github.com/your_username/your_repository/raw/main/blog/bg/bg3.jpg</a><br>
+                    <a href="https://cdn.jsdelivr.net/gh/your_username/your_repository@main/blog/bg/bg3.jpg" target="_blank">https://cdn.jsdelivr.net/gh/your_username/your_repository@main/blog/bg/bg3.jpg</a>
+                </div>
+                
+                <div class="file">
+                    <img src="https://github.com/your_username/your_repository/raw/main/blog/bg/bg4.jpg" alt="bg4.jpg"><br>
+                    <a href="https://github.com/your_username/your_repository/raw/main/blog/bg/bg4.jpg" target="_blank">https://github.com/your_username/your_repository/raw/main/blog/bg/bg4.jpg</a><br>
+                    <a href="https://cdn.jsdelivr.net/gh/your_username/your_repository@main/blog/bg/bg4.jpg" target="_blank">https://cdn.jsdelivr.net/gh/your_username/your_repository@main/blog/bg/bg4.jpg</a>
+                </div>
+                
+                </div>
+                
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;logo</button>
+                <div class="content">
+                    
+                </div>
+                
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;pay</button>
+                <div class="content">
+                    
+                </div>
+                
+                <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;svg</button>
+                <div class="content">
+                    
+                </div>
+                
+                </div>
+                
+        <script>
+            var coll = document.getElementsByClassName("collapsible");
+            var i;
+
+            for (i = 0; i < coll.length; i++) {
+                coll[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var content = this.nextElementSibling;
+                    if (content.style.display === "block") {
+                        content.style.display = "none";
+                    } else {
+                        content.style.display = "block";
+                    }
+                });
+            }
+        </script>
     </body>
     </html>
     

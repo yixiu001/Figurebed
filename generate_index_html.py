@@ -3,6 +3,11 @@ import os
 # 在这里定义GitHub用户名和仓库名称
 GITHUB_USERNAME = 'yixiu001'
 GITHUB_REPOSITORY = 'Figurebed'
+import os
+
+# 在这里定义GitHub用户名和仓库名称
+GITHUB_USERNAME = 'your_username'
+GITHUB_REPOSITORY = 'your_repository'
 
 def generate_index_html(root_dir):
     base_url = f"https://github.com/{GITHUB_USERNAME}/{GITHUB_REPOSITORY}/raw/main/"
@@ -24,17 +29,31 @@ def generate_index_html(root_dir):
             h1 {
                 text-align: center;
             }
-            table {
-                width: 100%;
-                border-collapse: collapse;
+            .directory {
+                margin: 10px 0;
             }
-            th, td {
-                border: 1px solid #ddd;
-                padding: 8px;
+            .file {
+                margin-left: 20px;
             }
-            th {
-                background-color: #f2f2f2;
+            .collapsible {
+                cursor: pointer;
+                padding: 10px;
                 text-align: left;
+                background-color: #f2f2f2;
+                border: none;
+                outline: none;
+                font-size: 15px;
+                width: 100%;
+                transition: 0.4s;
+            }
+            .active, .collapsible:hover {
+                background-color: #ccc;
+            }
+            .content {
+                padding: 0 18px;
+                display: none;
+                overflow: hidden;
+                background-color: #f9f9f9;
             }
             img {
                 max-width: 100px;
@@ -43,31 +62,51 @@ def generate_index_html(root_dir):
         </style>
     </head>
     <body>
-        <h1>一休github简易图床系统</h1>
-        <table>
-            <tr>
-                <th>缩略图</th>
-                <th>HTTPS 访问地址</th>
-                <th>jsdelivr CDN 加速地址</th>
-            </tr>
+        <h1>Image Index</h1>
     '''
 
-    for subdir, _, files in os.walk(root_dir):
-        for file in files:
-            if file.lower().endswith(('.png', '.jpg', '.jpeg', '.gif', '.bmp', '.tiff')):
-                file_path = os.path.relpath(os.path.join(subdir, file), root_dir)
-                https_url = base_url + file_path
-                cdn_url_complete = cdn_url + file_path
-                html_content += f'''
-                <tr>
-                    <td><img src="{https_url}" alt="{file}"></td>
-                    <td><a href="{https_url}" target="_blank">{https_url}</a></td>
-                    <td><a href="{cdn_url_complete}" target="_blank">{cdn_url_complete}</a></td>
-                </tr>
+    def generate_directory_html(directory, level=0):
+        content = ''
+        for entry in sorted(os.listdir(directory)):
+            path = os.path.join(directory, entry)
+            rel_path = os.path.relpath(path, root_dir)
+            if os.path.isdir(path):
+                content += f'''
+                <button class="collapsible">{'&nbsp;' * 4 * level + entry}</button>
+                <div class="content">
+                    {generate_directory_html(path, level + 1)}
+                </div>
                 '''
+            elif entry.lower().endswith(('.png', '.jpg', '.jpeg', '.gif', '.bmp', '.tiff')):
+                https_url = base_url + rel_path
+                cdn_url_complete = cdn_url + rel_path
+                content += f'''
+                <div class="file">
+                    <img src="{https_url}" alt="{entry}"><br>
+                    <a href="{https_url}" target="_blank">{https_url}</a><br>
+                    <a href="{cdn_url_complete}" target="_blank">{cdn_url_complete}</a>
+                </div>
+                '''
+        return content
 
+    html_content += generate_directory_html(root_dir)
     html_content += '''
-        </table>
+        <script>
+            var coll = document.getElementsByClassName("collapsible");
+            var i;
+
+            for (i = 0; i < coll.length; i++) {
+                coll[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var content = this.nextElementSibling;
+                    if (content.style.display === "block") {
+                        content.style.display = "none";
+                    } else {
+                        content.style.display = "block";
+                    }
+                });
+            }
+        </script>
     </body>
     </html>
     '''
