@@ -1,0 +1,25 @@
+{
+  "blog": {
+    "bg": {
+      "bg1.jpg": {
+        "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg1.jpg",
+        "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg1.jpg"
+      },
+      "bg2.jpg": {
+        "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg2.jpg",
+        "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg2.jpg"
+      },
+      "bg3.jpg": {
+        "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg3.jpg",
+        "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg3.jpg"
+      },
+      "bg4.jpg": {
+        "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg4.jpg",
+        "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg4.jpg"
+      }
+    },
+    "logo": {},
+    "pay": {},
+    "svg": {}
+  }
+}

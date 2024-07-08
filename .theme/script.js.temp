@@ -1,40 +1,97 @@
-function initCollapsible(tableContent, firstDirectory) {
-    var coll = document.getElementsByClassName("collapsible");
-    var imageTable = document.getElementById("image-table");
+document.addEventListener("DOMContentLoaded", function() {
+    var githubUsername = 'GITHUB_USERNAME';
+    var githubRepository = 'GITHUB_REPOSITORY';
 
-    function populateTable(directory) {
-        while (imageTable.rows.length > 1) {
-            imageTable.deleteRow(1);
+    function fetchFileStructure() {
+        fetch('files.json')
+            .then(response => response.json())
+            .then(data => {
+                populateDirectory(data);
+                populateTable(Object.keys(data)[0]);
+            });
+    }
+
+    function populateDirectory(data, parentElement = document.getElementById('directory'), level = 0) {
+        for (const key in data) {
+            if (typeof data[key] === 'object' && !data[key].https_url) {
+                const folder = document.createElement('div');
+                folder.style.marginLeft = level * 20 + 'px';
+                folder.innerHTML = `<button class="collapsible" data-path="${key}">${key}</button>`;
+                parentElement.appendChild(folder);
+                const contentSection = document.createElement('div');
+                contentSection.className = 'content-section';
+                contentSection.style.display = 'none';
+                folder.appendChild(contentSection);
+                populateDirectory(data[key], contentSection, level + 1);
+            }
         }
-        if (tableContent[directory]) {
-            tableContent[directory].forEach(function(item) {
-                var row = imageTable.insertRow();
-                var cell1 = row.insertCell(0);
-                var cell2 = row.insertCell(1);
-                var cell3 = row.insertCell(2);
-                cell1.innerHTML = '<img src="' + item[1] + '" alt="' + item[0] + '">';
-                cell2.innerHTML = '<span class="link" onclick="copyToClipboard(\'' + item[1] + '\')">' + item[1] + '</span>';
-                cell3.innerHTML = '<span class="link" onclick="copyToClipboard(\'' + item[2] + '\')">' + item[2] + '</span>';
+
+        var coll = document.getElementsByClassName("collapsible");
+        for (var i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function() {
+                var active = document.querySelector('.collapsible.active');
+                if (active && active !== this) {
+                    active.classList.remove('active');
+                    active.nextElementSibling.style.display = 'none';
+                }
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                    content.style.display = "none";
+                } else {
+                    content.style.display = "block";
+                }
+                populateTable(this.getAttribute("data-path"));
             });
         }
     }
 
-    for (var i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", function() {
-            var active = document.querySelector('.collapsible.active');
-            if (active && active !== this) {
-                active.classList.remove('active');
-                active.nextElementSibling.style.display = 'none';
+    function populateTable(directory) {
+        fetch('files.json')
+            .then(response => response.json())
+            .then(data => {
+                var imageTable = document.getElementById("image-table");
+                while (imageTable.rows.length > 1) {
+                    imageTable.deleteRow(1);
+                }
+                var images = getImagesFromDirectory(data, directory);
+                images.forEach(function(item) {
+                    var row = imageTable.insertRow();
+                    var cell1 = row.insertCell(0);
+                    var cell2 = row.insertCell(1);
+                    var cell3 = row.insertCell(2);
+                    cell1.innerHTML = '<img src="' + item.https_url + '" alt="' + item.name + '">';
+                    cell2.innerHTML = '<span class="link" onclick="copyToClipboard(\'' + item.https_url + '\')">' + item.https_url + '</span>';
+                    cell3.innerHTML = '<span class="link" onclick="copyToClipboard(\'' + item.cdn_url + '\')">' + item.cdn_url + '</span>';
+                });
+            });
+    }
+
+    function getImagesFromDirectory(data, directory) {
+        var images = [];
+        for (const key in data) {
+            if (typeof data[key] === 'object' && !data[key].https_url) {
+                images = images.concat(getImagesFromDirectory(data[key], directory + '/' + key));
+            } else if (typeof data[key] === 'object' && data[key].https_url) {
+                if (directory === '') {
+                    images.push({
+                        name: key,
+                        https_url: data[key].https_url,
+                        cdn_url: data[key].cdn_url
+                    });
+                } else {
+                    var parts = directory.split('/');
+                    if (parts[parts.length - 1] === key.split('/')[0]) {
+                        images.push({
+                            name: key,
+                            https_url: data[key].https_url,
+                            cdn_url: data[key].cdn_url
+                        });
+                    }
+                }
             }
-            this.classList.toggle("active");
-            var content = this.nextElementSibling;
-            if (content.style.display === "block") {
-                content.style.display = "none";
-            } else {
-                content.style.display = "block";
-            }
-            populateTable(this.getAttribute("data-path"));
-        });
+        }
+        return images;
     }
 
     function copyToClipboard(text) {
@@ -45,14 +102,5 @@ function initCollapsible(tableContent, firstDirectory) {
         });
     }
 
-    // 默认展开第一个目录并显示其内容
-    if (firstDirectory) {
-        populateTable(firstDirectory);
-        var firstCollapsible = document.querySelector('.collapsible[data-path="' + firstDirectory + '"]');
-        firstCollapsible.classList.add("active");
-        firstCollapsible.nextElementSibling.style.display = "block";
-    }
-}
-document.addEventListener("DOMContentLoaded", function() {
-    initCollapsible(tableContent, firstDirectory);
+    fetchFileStructure();
 });
