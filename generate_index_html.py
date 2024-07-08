@@ -1,111 +1,87 @@
 import os
-import json
 
-# 定义GitHub用户名和仓库名称
+# 在这里定义GitHub用户名和仓库名称
 GITHUB_USERNAME = 'yixiu001'
 GITHUB_REPOSITORY = 'Figurebed'
 
-def generate_file_structure(directory, root_dir):
-    structure = {}
-    for entry in sorted(os.listdir(directory)):
-        if entry.startswith('.'):
-            continue
-        path = os.path.join(directory, entry)
-        rel_path = os.path.relpath(path, root_dir).replace("\\", "/")
-        if os.path.isdir(path):
-            structure[entry] = generate_file_structure(path, root_dir)
-        elif entry.lower().endswith(('.png', '.jpg', '.jpeg', '.gif', '.bmp', '.tiff')):
-            https_url = f"https://github.com/{GITHUB_USERNAME}/{GITHUB_REPOSITORY}/raw/main/{rel_path}"
-            cdn_url = f"https://cdn.jsdelivr.net/gh/{GITHUB_USERNAME}/{GITHUB_REPOSITORY}@main/{rel_path}"
-            structure[entry] = {
-                'https_url': https_url,
-                'cdn_url': cdn_url
-            }
-    return structure
+def generate_index_html(root_dir):
+    base_url = f"https://github.com/{GITHUB_USERNAME}/{GITHUB_REPOSITORY}/raw/main/"
+    cdn_url = f"https://cdn.jsdelivr.net/gh/{GITHUB_USERNAME}/{GITHUB_REPOSITORY}@main/"
 
-def generate_files_json(root_dir):
-    file_structure = generate_file_structure(root_dir, root_dir)
-    with open(os.path.join(root_dir, 'files.json'), 'w', encoding='utf-8') as f:
-        json.dump(file_structure, f, ensure_ascii=False, indent=2)
+    # 定义生成 HTML 内容的函数
+    def generate_html_content(files):
+        html_content = '''
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>一休github简易图床系统</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    margin: 20px;
+                    background-color: #f0f0f0;
+                }
+                h1 {
+                    text-align: center;
+                }
+                table {
+                    width: 100%;
+                    border-collapse: collapse;
+                }
+                th, td {
+                    border: 1px solid #ddd;
+                    padding: 8px;
+                }
+                th {
+                    background-color: #f2f2f2;
+                    text-align: left;
+                }
+                img {
+                    max-width: 100px;
+                    height: auto;
+                }
+            </style>
+        </head>
+        <body>
+            <h1>一休github简易图床系统</h1>
+            <table>
+                <tr>
+                    <th>缩略图</th>
+                    <th>HTTPS 访问地址</th>
+                    <th>jsdelivr CDN 加速地址</th>
+                </tr>
+        '''
 
-def generate_html(file_structure):
-    def generate_directory_html(data, path=''):
-        html = ''
-        for key in data:
-            if isinstance(data[key], dict) and 'https_url' not in data[key]:
-                subdir_html = generate_directory_html(data[key], f"{path}/{key}".strip('/'))
-                html += f'<div class="folder"><button class="collapsible" data-path="{path}/{key}">{key}</button><div class="content-section">{subdir_html}</div></div>'
-            elif isinstance(data[key], dict):
-                html += f'<div class="image-entry" data-path="{path}"><img src="{data[key]["https_url"]}" alt="{key}" /><span class="link" onclick="copyToClipboard(\'{data[key]["https_url"]}\')">{data[key]["https_url"]}</span><span class="link" onclick="copyToClipboard(\'{data[key]["cdn_url"]}\')">{data[key]["cdn_url"]}</span></div>'
-        return html
+        for file in files:
+            file_path = os.path.relpath(file, root_dir)
+            https_url = base_url + file_path
+            cdn_url_complete = cdn_url + file_path
+            html_content += f'''
+            <tr>
+                <td><img src="{https_url}" alt="{os.path.basename(file)}"></td>
+                <td><a href="{https_url}" target="_blank">{https_url}</a></td>
+                <td><a href="{cdn_url_complete}" target="_blank">{cdn_url_complete}</a></td>
+            </tr>
+            '''
 
-    directory_html = generate_directory_html(file_structure)
+        html_content += '''
+            </table>
+        </body>
+        </html>
+        '''
+        return html_content
 
-    html_content = f"""<!DOCTYPE html>
-<html lang="zh">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>一休github简易图床系统</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="sidebar">
-        <h1>目录</h1>
-        <div id="directory">
-            {directory_html}
-        </div>
-    </div>
-    <div class="content">
-        <h1>图片信息</h1>
-        <div id="image-info"></div>
-    </div>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const coll = document.getElementsByClassName("collapsible");
-            for (let i = 0; i < coll.length; i++) {
-                coll[i].addEventListener("click", function() {
-                    this.classList.toggle("active");
-                    const content = this.nextElementSibling;
-                    if (content.style.display === "block") {
-                        content.style.display = "none";
-                    } else {
-                        content.style.display = "block";
-                    }
-                    showImages(this.getAttribute("data-path"));
-                });
-            }
+    # 获取所有图片文件
+    image_files = [os.path.join(root, file) for root, _, files in os.walk(root_dir) for file in files if file.lower().endswith(('.png', '.jpg', '.jpeg', '.gif', '.bmp', '.tiff'))]
 
-            function showImages(directory) {
-                const images = document.querySelectorAll('.image-entry');
-                images.forEach(image => {
-                    if (image.getAttribute('data-path').startsWith(directory)) {
-                        image.style.display = 'block';
-                    } else {
-                        image.style.display = 'none';
-                    }
-                });
-            }
-
-            function copyToClipboard(text) {
-                navigator.clipboard.writeText(text).then(function() {
-                    alert('链接已复制: ' + text);
-                }, function(err) {
-                    console.error('复制失败: ', err);
-                });
-            }
-
-            showImages(Object.keys({file_structure})[0]); // 默认显示第一个目录的图片
-        });
-    </script>
-</body>
-</html>"""
-
-    with open('index.html', 'w', encoding='utf-8') as f:
-        f.write(html_content)
+    if image_files:
+        html_content = generate_html_content(image_files)
+        with open(os.path.join(root_dir, 'index.html'), 'w', encoding='utf-8') as f:
+            f.write(html_content)
+    else:
+        print(f"No image files found in {root_dir}")
 
 if __name__ == "__main__":
-    root_dir = '.'
-    generate_files_json(root_dir)
-    file_structure = generate_file_structure(root_dir, root_dir)
-    generate_html(file_structure)
+    generate_index_html('.')
