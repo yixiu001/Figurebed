@@ -1,6 +1,6 @@
 
     <!DOCTYPE html>
-    <html lang="en">
+    <html lang="zh">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,17 +8,24 @@
         <style>
             body {
                 font-family: Arial, sans-serif;
-                margin: 20px;
+                display: flex;
+                height: 100vh;
+                margin: 0;
                 background-color: #f0f0f0;
             }
             h1 {
                 text-align: center;
             }
-            .directory {
-                margin: 10px 0;
+            .sidebar {
+                width: 25%;
+                overflow-y: auto;
+                padding: 20px;
+                background-color: #f7f7f7;
+                border-right: 1px solid #ddd;
             }
-            .file {
-                margin-left: 20px;
+            .content {
+                flex: 1;
+                padding: 20px;
             }
             .collapsible {
                 cursor: pointer;
@@ -34,70 +41,99 @@
             .active, .collapsible:hover {
                 background-color: #ccc;
             }
-            .content {
+            .content-section {
                 padding: 0 18px;
                 display: none;
                 overflow: hidden;
                 background-color: #f9f9f9;
             }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            th, td {
+                border: 1px solid #ddd;
+                padding: 8px;
+            }
+            th {
+                background-color: #f2f2f2;
+                text-align: left;
+            }
             img {
                 max-width: 100px;
                 height: auto;
             }
+            .link {
+                color: blue;
+                cursor: pointer;
+            }
         </style>
     </head>
     <body>
-        <h1>一休github简易图床系统</h1>
+        <div class="sidebar">
+            <h1>目录</h1>
     
                 <button class="collapsible">blog</button>
-                <div class="content">
+                <div class="content-section">
                     
                 <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;bg</button>
-                <div class="content">
+                <div class="content-section">
                     
-                <div class="file">
-                    <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg1.jpg" alt="bg1.jpg"><br>
-                    <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg1.jpg" target="_blank">https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg1.jpg</a><br>
-                    <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg1.jpg" target="_blank">https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg1.jpg</a>
-                </div>
-                
-                <div class="file">
-                    <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg2.jpg" alt="bg2.jpg"><br>
-                    <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg2.jpg" target="_blank">https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg2.jpg</a><br>
-                    <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg2.jpg" target="_blank">https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg2.jpg</a>
-                </div>
-                
-                <div class="file">
-                    <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg3.jpg" alt="bg3.jpg"><br>
-                    <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg3.jpg" target="_blank">https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg3.jpg</a><br>
-                    <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg3.jpg" target="_blank">https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg3.jpg</a>
-                </div>
-                
-                <div class="file">
-                    <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg4.jpg" alt="bg4.jpg"><br>
-                    <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg4.jpg" target="_blank">https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg4.jpg</a><br>
-                    <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg4.jpg" target="_blank">https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg4.jpg</a>
-                </div>
-                
                 </div>
                 
                 <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;logo</button>
-                <div class="content">
+                <div class="content-section">
                     
                 </div>
                 
                 <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;pay</button>
-                <div class="content">
+                <div class="content-section">
                     
                 </div>
                 
                 <button class="collapsible">&nbsp;&nbsp;&nbsp;&nbsp;svg</button>
-                <div class="content">
+                <div class="content-section">
                     
                 </div>
                 
                 </div>
                 
+        </div>
+        <div class="content">
+            <h1>图片信息</h1>
+            <table>
+                <tr>
+                    <th>缩略图</th>
+                    <th>HTTPS 访问地址</th>
+                    <th>jsdelivr CDN 加速地址</th>
+                </tr>
+    
+        <tr>
+            <td><img src="https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg1.jpg" alt="bg1.jpg"></td>
+            <td><span class="link" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg1.jpg')">https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg1.jpg</span></td>
+            <td><span class="link" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg1.jpg')">https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg1.jpg</span></td>
+        </tr>
+        
+        <tr>
+            <td><img src="https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg2.jpg" alt="bg2.jpg"></td>
+            <td><span class="link" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg2.jpg')">https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg2.jpg</span></td>
+            <td><span class="link" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg2.jpg')">https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg2.jpg</span></td>
+        </tr>
+        
+        <tr>
+            <td><img src="https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg3.jpg" alt="bg3.jpg"></td>
+            <td><span class="link" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg3.jpg')">https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg3.jpg</span></td>
+            <td><span class="link" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg3.jpg')">https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg3.jpg</span></td>
+        </tr>
+        
+        <tr>
+            <td><img src="https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg4.jpg" alt="bg4.jpg"></td>
+            <td><span class="link" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg4.jpg')">https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg4.jpg</span></td>
+            <td><span class="link" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg4.jpg')">https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg4.jpg</span></td>
+        </tr>
+        
+            </table>
+        </div>
         <script>
             var coll = document.getElementsByClassName("collapsible");
             var i;
@@ -111,6 +147,14 @@
                     } else {
                         content.style.display = "block";
                     }
+                });
+            }
+
+            function copyToClipboard(text) {
+                navigator.clipboard.writeText(text).then(function() {
+                    alert('链接已复制: ' + text);
+                }, function(err) {
+                    console.error('复制失败: ', err);
                 });
             }
         </script>

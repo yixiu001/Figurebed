@@ -10,7 +10,7 @@ def generate_index_html(root_dir):
 
     html_content = '''
     <!DOCTYPE html>
-    <html lang="en">
+    <html lang="zh">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,17 +18,24 @@ def generate_index_html(root_dir):
         <style>
             body {
                 font-family: Arial, sans-serif;
-                margin: 20px;
+                display: flex;
+                height: 100vh;
+                margin: 0;
                 background-color: #f0f0f0;
             }
             h1 {
                 text-align: center;
             }
-            .directory {
-                margin: 10px 0;
+            .sidebar {
+                width: 25%;
+                overflow-y: auto;
+                padding: 20px;
+                background-color: #f7f7f7;
+                border-right: 1px solid #ddd;
             }
-            .file {
-                margin-left: 20px;
+            .content {
+                flex: 1;
+                padding: 20px;
             }
             .collapsible {
                 cursor: pointer;
@@ -44,21 +51,40 @@ def generate_index_html(root_dir):
             .active, .collapsible:hover {
                 background-color: #ccc;
             }
-            .content {
+            .content-section {
                 padding: 0 18px;
                 display: none;
                 overflow: hidden;
                 background-color: #f9f9f9;
             }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            th, td {
+                border: 1px solid #ddd;
+                padding: 8px;
+            }
+            th {
+                background-color: #f2f2f2;
+                text-align: left;
+            }
             img {
                 max-width: 100px;
                 height: auto;
             }
+            .link {
+                color: blue;
+                cursor: pointer;
+            }
         </style>
     </head>
     <body>
-        <h1>一休github简易图床系统</h1>
+        <div class="sidebar">
+            <h1>目录</h1>
     '''
+
+    directory_html = ''
 
     def generate_directory_html(directory, level=0):
         content = ''
@@ -70,24 +96,45 @@ def generate_index_html(root_dir):
             if os.path.isdir(path):
                 content += f'''
                 <button class="collapsible">{'&nbsp;' * 4 * level + entry}</button>
-                <div class="content">
+                <div class="content-section">
                     {generate_directory_html(path, level + 1)}
                 </div>
                 '''
             elif entry.lower().endswith(('.png', '.jpg', '.jpeg', '.gif', '.bmp', '.tiff')):
                 https_url = base_url + rel_path
                 cdn_url_complete = cdn_url + rel_path
-                content += f'''
-                <div class="file">
-                    <img src="{https_url}" alt="{entry}"><br>
-                    <a href="{https_url}" target="_blank">{https_url}</a><br>
-                    <a href="{cdn_url_complete}" target="_blank">{cdn_url_complete}</a>
-                </div>
-                '''
+                table_content.append((entry, https_url, cdn_url_complete))
         return content
 
-    html_content += generate_directory_html(root_dir)
+    table_content = []
+
+    directory_html += generate_directory_html(root_dir)
+
+    html_content += directory_html
     html_content += '''
+        </div>
+        <div class="content">
+            <h1>图片信息</h1>
+            <table>
+                <tr>
+                    <th>缩略图</th>
+                    <th>HTTPS 访问地址</th>
+                    <th>jsdelivr CDN 加速地址</th>
+                </tr>
+    '''
+
+    for entry, https_url, cdn_url_complete in table_content:
+        html_content += f'''
+        <tr>
+            <td><img src="{https_url}" alt="{entry}"></td>
+            <td><span class="link" onclick="copyToClipboard('{https_url}')">{https_url}</span></td>
+            <td><span class="link" onclick="copyToClipboard('{cdn_url_complete}')">{cdn_url_complete}</span></td>
+        </tr>
+        '''
+
+    html_content += '''
+            </table>
+        </div>
         <script>
             var coll = document.getElementsByClassName("collapsible");
             var i;
@@ -101,6 +148,14 @@ def generate_index_html(root_dir):
                     } else {
                         content.style.display = "block";
                     }
+                });
+            }
+
+            function copyToClipboard(text) {
+                navigator.clipboard.writeText(text).then(function() {
+                    alert('链接已复制: ' + text);
+                }, function(err) {
+                    console.error('复制失败: ', err);
                 });
             }
         </script>
