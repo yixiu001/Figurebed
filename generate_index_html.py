@@ -36,6 +36,7 @@ def generate_index_html(root_dir):
             .content {
                 flex: 1;
                 padding: 20px;
+                overflow-y: auto;
             }
             .collapsible {
                 cursor: pointer;
@@ -94,22 +95,23 @@ def generate_index_html(root_dir):
             if entry.startswith('.'):
                 continue
             path = os.path.join(directory, entry)
-            rel_path = os.path.relpath(path, root_dir)
+            rel_path = os.path.relpath(path, root_dir).replace("\\", "/")
             if os.path.isdir(path):
                 if first_directory is None:
-                    first_directory = rel_path.replace("\\", "/")
+                    first_directory = rel_path
                 content += f'''
-                <button class="collapsible" data-path="{rel_path.replace("\\", "/")}">{'&nbsp;' * 4 * level + entry}</button>
+                <button class="collapsible" data-path="{rel_path}">{'&nbsp;' * 4 * level + entry}</button>
                 <div class="content-section">
-                    {generate_directory_html(path, level + 1)}
+                    {generate_directory_html(path, level + 1)[0]}
                 </div>
                 '''
             elif entry.lower().endswith(('.png', '.jpg', '.jpeg', '.gif', '.bmp', '.tiff')):
-                if rel_path.replace("\\", "/").rsplit("/", 1)[0] not in table_content:
-                    table_content[rel_path.replace("\\", "/").rsplit("/", 1)[0]] = []
-                https_url = base_url + rel_path.replace("\\", "/")
-                cdn_url_complete = cdn_url + rel_path.replace("\\", "/")
-                table_content[rel_path.replace("\\", "/").rsplit("/", 1)[0]].append((entry, https_url, cdn_url_complete))
+                dir_path = rel_path.rsplit("/", 1)[0]
+                if dir_path not in table_content:
+                    table_content[dir_path] = []
+                https_url = base_url + rel_path
+                cdn_url_complete = cdn_url + rel_path
+                table_content[dir_path].append((entry, https_url, cdn_url_complete))
         return content, first_directory
 
     directory_html, first_directory = generate_directory_html(root_dir)
@@ -147,14 +149,19 @@ def generate_index_html(root_dir):
                         var cell2 = row.insertCell(1);
                         var cell3 = row.insertCell(2);
                         cell1.innerHTML = '<img src="' + item[1] + '" alt="' + item[0] + '">';
-                        cell2.innerHTML = '<span class="link" onclick="copyToClipboard(\\'' + item[1] + '\\')">' + item[1] + '</span>';
-                        cell3.innerHTML = '<span class="link" onclick="copyToClipboard(\\'' + item[2] + '\\')">' + item[2] + '</span>';
+                        cell2.innerHTML = '<span class="link" onclick="copyToClipboard(\'' + item[1] + '\')">' + item[1] + '</span>';
+                        cell3.innerHTML = '<span class="link" onclick="copyToClipboard(\'' + item[2] + '\')">' + item[2] + '</span>';
                     });
                 }
             }
 
             for (var i = 0; i < coll.length; i++) {
                 coll[i].addEventListener("click", function() {
+                    var active = document.querySelector('.collapsible.active');
+                    if (active && active !== this) {
+                        active.classList.remove('active');
+                        active.nextElementSibling.style.display = 'none';
+                    }
                     this.classList.toggle("active");
                     var content = this.nextElementSibling;
                     if (content.style.display === "block") {
@@ -177,8 +184,9 @@ def generate_index_html(root_dir):
             // 默认展开第一个目录并显示其内容
             if (firstDirectory) {
                 populateTable(firstDirectory);
-                coll[0].classList.add("active");
-                coll[0].nextElementSibling.style.display = "block";
+                var firstCollapsible = document.querySelector('.collapsible[data-path="' + firstDirectory + '"]');
+                firstCollapsible.classList.add("active");
+                firstCollapsible.nextElementSibling.style.display = "block";
             }
         </script>
     </body>
