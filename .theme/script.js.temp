@@ -44,6 +44,15 @@ function initCollapsible(tableContent, firstDirectory) {
             console.error('复制失败: ', err);
         });
     }
-}
 
-// 默认展开第一个目录并显示其内容
+    // 默认展开第一个目录并显示其内容
+    if (firstDirectory) {
+        populateTable(firstDirectory);
+        var firstCollapsible = document.querySelector('.collapsible[data-path="' + firstDirectory + '"]');
+        firstCollapsible.classList.add("active");
+        firstCollapsible.nextElementSibling.style.display = "block";
+    }
+}
+document.addEventListener("DOMContentLoaded", function() {
+    initCollapsible(tableContent, firstDirectory);
+});
