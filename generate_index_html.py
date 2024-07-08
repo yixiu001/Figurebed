@@ -3,11 +3,6 @@ import os
 # 在这里定义GitHub用户名和仓库名称
 GITHUB_USERNAME = 'yixiu001'
 GITHUB_REPOSITORY = 'Figurebed'
-import os
-
-# 在这里定义GitHub用户名和仓库名称
-GITHUB_USERNAME = 'your_username'
-GITHUB_REPOSITORY = 'your_repository'
 
 def generate_index_html(root_dir):
     base_url = f"https://github.com/{GITHUB_USERNAME}/{GITHUB_REPOSITORY}/raw/main/"
@@ -62,12 +57,14 @@ def generate_index_html(root_dir):
         </style>
     </head>
     <body>
-        <h1>Image Index</h1>
+        <h1>一休github简易图床系统</h1>
     '''
 
     def generate_directory_html(directory, level=0):
         content = ''
         for entry in sorted(os.listdir(directory)):
+            if entry.startswith('.'):
+                continue
             path = os.path.join(directory, entry)
             rel_path = os.path.relpath(path, root_dir)
             if os.path.isdir(path):
