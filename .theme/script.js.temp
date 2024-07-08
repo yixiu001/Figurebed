@@ -44,5 +44,6 @@ function initCollapsible(tableContent, firstDirectory) {
             console.error('复制失败: ', err);
         });
     }
+}
 
 // 默认展开第一个目录并显示其内容
