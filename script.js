@@ -6,11 +6,11 @@ document.addEventListener("DOMContentLoaded", function() {
                 for (const key in data) {
                     if (typeof data[key] === 'object' && !data[key].https_url) {
                         const folder = document.createElement('div');
+                        folder.classList.add('folder');
                         folder.innerHTML = `<button class="collapsible" data-path="${path}/${key}">${key}</button>`;
                         parentElement.appendChild(folder);
                         const contentSection = document.createElement('div');
                         contentSection.className = 'content-section';
-                        contentSection.style.display = 'none';
                         folder.appendChild(contentSection);
                         populateDirectory(data[key], contentSection, path + '/' + key);
                     }
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     const cell2 = row.insertCell(1);
                     const cell3 = row.insertCell(2);
 
-                    cell1.innerHTML = `<img src="${item.https_url}" alt="${item.name}">`;
+                    cell1.innerHTML = `<img src="${item.https_url}" alt="${item.name}" />`;
                     cell2.innerHTML = `<span class="link" onclick="copyToClipboard('${item.https_url}')">${item.https_url}</span>`;
                     cell3.innerHTML = `<span class="link" onclick="copyToClipboard('${item.cdn_url}')">${item.cdn_url}</span>`;
                 });
@@ -87,5 +87,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
             const directoryElement = document.getElementById('directory');
             populateDirectory(fileStructure, directoryElement);
+            if (Object.keys(fileStructure).length > 0) {
+                populateTable(Object.keys(fileStructure)[0]);
+            }
         });
 });
