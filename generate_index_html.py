@@ -85,37 +85,41 @@ def generate_index_html(root_dir):
     '''
 
     directory_html = ''
+    table_content = {}
 
     def generate_directory_html(directory, level=0):
         content = ''
+        first_directory = None
         for entry in sorted(os.listdir(directory)):
             if entry.startswith('.'):
                 continue
             path = os.path.join(directory, entry)
             rel_path = os.path.relpath(path, root_dir)
             if os.path.isdir(path):
+                if first_directory is None:
+                    first_directory = rel_path.replace("\\", "/")
                 content += f'''
-                <button class="collapsible">{'&nbsp;' * 4 * level + entry}</button>
+                <button class="collapsible" data-path="{rel_path.replace("\\", "/")}">{'&nbsp;' * 4 * level + entry}</button>
                 <div class="content-section">
                     {generate_directory_html(path, level + 1)}
                 </div>
                 '''
             elif entry.lower().endswith(('.png', '.jpg', '.jpeg', '.gif', '.bmp', '.tiff')):
-                https_url = base_url + rel_path
-                cdn_url_complete = cdn_url + rel_path
-                table_content.append((entry, https_url, cdn_url_complete))
-        return content
+                if rel_path.replace("\\", "/").rsplit("/", 1)[0] not in table_content:
+                    table_content[rel_path.replace("\\", "/").rsplit("/", 1)[0]] = []
+                https_url = base_url + rel_path.replace("\\", "/")
+                cdn_url_complete = cdn_url + rel_path.replace("\\", "/")
+                table_content[rel_path.replace("\\", "/").rsplit("/", 1)[0]].append((entry, https_url, cdn_url_complete))
+        return content, first_directory
 
-    table_content = []
-
-    directory_html += generate_directory_html(root_dir)
+    directory_html, first_directory = generate_directory_html(root_dir)
 
     html_content += directory_html
     html_content += '''
         </div>
         <div class="content">
             <h1>图片信息</h1>
-            <table>
+            <table id="image-table">
                 <tr>
                     <th>缩略图</th>
                     <th>HTTPS 访问地址</th>
@@ -123,23 +127,33 @@ def generate_index_html(root_dir):
                 </tr>
     '''
 
-    for entry, https_url, cdn_url_complete in table_content:
-        html_content += f'''
-        <tr>
-            <td><img src="{https_url}" alt="{entry}"></td>
-            <td><span class="link" onclick="copyToClipboard('{https_url}')">{https_url}</span></td>
-            <td><span class="link" onclick="copyToClipboard('{cdn_url_complete}')">{cdn_url_complete}</span></td>
-        </tr>
-        '''
-
     html_content += '''
             </table>
         </div>
         <script>
             var coll = document.getElementsByClassName("collapsible");
-            var i;
+            var imageTable = document.getElementById("image-table");
+            var tableContent = ''' + str(table_content) + ''';
+            var firstDirectory = ''' + '"' + first_directory + '"' + ''';
 
-            for (i = 0; i < coll.length; i++) {
+            function populateTable(directory) {
+                while (imageTable.rows.length > 1) {
+                    imageTable.deleteRow(1);
+                }
+                if (tableContent[directory]) {
+                    tableContent[directory].forEach(function(item) {
+                        var row = imageTable.insertRow();
+                        var cell1 = row.insertCell(0);
+                        var cell2 = row.insertCell(1);
+                        var cell3 = row.insertCell(2);
+                        cell1.innerHTML = '<img src="' + item[1] + '" alt="' + item[0] + '">';
+                        cell2.innerHTML = '<span class="link" onclick="copyToClipboard(\\'' + item[1] + '\\')">' + item[1] + '</span>';
+                        cell3.innerHTML = '<span class="link" onclick="copyToClipboard(\\'' + item[2] + '\\')">' + item[2] + '</span>';
+                    });
+                }
+            }
+
+            for (var i = 0; i < coll.length; i++) {
                 coll[i].addEventListener("click", function() {
                     this.classList.toggle("active");
                     var content = this.nextElementSibling;
@@ -148,6 +162,7 @@ def generate_index_html(root_dir):
                     } else {
                         content.style.display = "block";
                     }
+                    populateTable(this.getAttribute("data-path"));
                 });
             }
 
@@ -157,6 +172,13 @@ def generate_index_html(root_dir):
                 }, function(err) {
                     console.error('复制失败: ', err);
                 });
+            }
+
+            // 默认展开第一个目录并显示其内容
+            if (firstDirectory) {
+                populateTable(firstDirectory);
+                coll[0].classList.add("active");
+                coll[0].nextElementSibling.style.display = "block";
             }
         </script>
     </body>
