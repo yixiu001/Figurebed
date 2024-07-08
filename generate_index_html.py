@@ -4,23 +4,18 @@ import os
 GITHUB_USERNAME = 'yixiu001'
 GITHUB_REPOSITORY = 'Figurebed'
 
+TEMPLATE_DIR = '.theme'
+
+def read_template(file_path):
+    with open(file_path, 'r', encoding='utf-8') as file:
+        return file.read()
+
 def generate_index_html(root_dir):
     base_url = f"https://github.com/{GITHUB_USERNAME}/{GITHUB_REPOSITORY}/raw/main/"
     cdn_url = f"https://cdn.jsdelivr.net/gh/{GITHUB_USERNAME}/{GITHUB_REPOSITORY}@main/"
 
-    html_content = '''
-    <!DOCTYPE html>
-    <html lang="zh">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>一休github简易图床系统</title>
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-        <div class="sidebar">
-            <h1>目录</h1>
-    '''
+    html_template = read_template(os.path.join(TEMPLATE_DIR, 'template.html.temp'))
+    js_template = read_template(os.path.join(TEMPLATE_DIR, 'script.js.temp'))
 
     directory_html = ''
     table_content = {}
@@ -53,34 +48,15 @@ def generate_index_html(root_dir):
 
     directory_html, first_directory = generate_directory_html(root_dir)
 
-    html_content += directory_html
-    html_content += '''
-        </div>
-        <div class="content">
-            <h1>图片信息</h1>
-            <table id="image-table">
-                <tr>
-                    <th>缩略图</th>
-                    <th>HTTPS 访问地址</th>
-                    <th>jsdelivr CDN 加速地址</th>
-                </tr>
-    '''
-
-    html_content += '''
-            </table>
-        </div>
-        <script src="script.js"></script>
-        <script>
-            var tableContent = ''' + str(table_content) + ''';
-            var firstDirectory = ''' + '"' + first_directory + '"' + ''';
-            initCollapsible(tableContent, firstDirectory);
-        </script>
-    </body>
-    </html>
-    '''
+    html_content = html_template.replace('<!-- DIRECTORY_CONTENT -->', directory_html)
+    html_content = html_content.replace('<!-- TABLE_CONTENT -->', str(table_content))
+    html_content = html_content.replace('<!-- FIRST_DIRECTORY -->', '"' + first_directory + '"')
 
     with open(os.path.join(root_dir, 'index.html'), 'w', encoding='utf-8') as f:
         f.write(html_content)
+
+    with open(os.path.join(root_dir, 'script.js'), 'w', encoding='utf-8') as f:
+        f.write(js_template)
 
 if __name__ == "__main__":
     generate_index_html('.')

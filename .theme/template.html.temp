@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一休github简易图床系统</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="sidebar">
+    <h1>目录</h1>
+    <!-- DIRECTORY_CONTENT -->
+</div>
+<div class="content">
+    <h1>图片信息</h1>
+    <table id="image-table">
+        <tr>
+            <th>缩略图</th>
+            <th>HTTPS 访问地址</th>
+            <th>jsdelivr CDN 加速地址</th>
+        </tr>
+    </table>
+</div>
+<script>
+    var tableContent = <!-- TABLE_CONTENT -->;
+    var firstDirectory = <!-- FIRST_DIRECTORY -->;
+</script>
+<script src="script.js.temp"></script>
+</body>
+</html>
