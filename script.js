@@ -5,18 +5,17 @@ document.addEventListener("DOMContentLoaded", function() {
     fetch('files.json')
         .then(response => response.json())
         .then(fileStructure => {
-            function populateDirectory(data, parentElement = document.getElementById('directory'), level = 0) {
+            function populateDirectory(data, parentElement = document.getElementById('directory'), path = '') {
                 for (const key in data) {
                     if (typeof data[key] === 'object' && !data[key].https_url) {
                         const folder = document.createElement('div');
-                        folder.style.marginLeft = level * 20 + 'px';
-                        folder.innerHTML = `<button class="collapsible" data-path="${key}">${key}</button>`;
+                        folder.innerHTML = `<button class="collapsible" data-path="${path}/${key}">${key}</button>`;
                         parentElement.appendChild(folder);
                         const contentSection = document.createElement('div');
                         contentSection.className = 'content-section';
                         contentSection.style.display = 'none';
                         folder.appendChild(contentSection);
-                        populateDirectory(data[key], contentSection, level + 1);
+                        populateDirectory(data[key], contentSection, path + '/' + key);
                     }
                 }
 
@@ -59,19 +58,28 @@ document.addEventListener("DOMContentLoaded", function() {
 
             function getImagesFromDirectory(data, directory) {
                 var images = [];
-                for (const key in data) {
-                    if (typeof data[key] === 'object' && !data[key].https_url) {
-                        images = images.concat(getImagesFromDirectory(data[key], directory + '/' + key));
-                    } else if (typeof data[key] === 'object' && data[key].https_url) {
-                        if (directory === '' || directory.split('/').indexOf(key.split('/')[0]) !== -1) {
-                            images.push({
-                                name: key,
-                                https_url: data[key].https_url,
-                                cdn_url: data[key].cdn_url
-                            });
+                var dirParts = directory.split('/').filter(part => part);
+
+                function traverse(currentData, currentPath = '') {
+                    for (const key in currentData) {
+                        if (typeof currentData[key] === 'object' && !currentData[key].https_url) {
+                            if (dirParts[0] === key) {
+                                dirParts.shift();
+                                traverse(currentData[key], currentPath + '/' + key);
+                            }
+                        } else if (typeof currentData[key] === 'object' && currentData[key].https_url) {
+                            if (currentPath === directory) {
+                                images.push({
+                                    name: key,
+                                    https_url: currentData[key].https_url,
+                                    cdn_url: currentData[key].cdn_url
+                                });
+                            }
                         }
                     }
                 }
+
+                traverse(data);
                 return images;
             }
 
