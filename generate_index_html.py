@@ -74,7 +74,7 @@ def generate_index_html(root_dir):
         return html_content
 
     # 获取所有图片文件
-    image_files = [os.path.join(root, file) for root, _, files in os.walk(root_dir) for file in files if file.lower().endswith(('.png', '.jpg', '.jpeg', '.gif', '.bmp', '.tiff'))]
+    image_files = [os.path.join(root, file) for root, _, files in os.walk(root_dir) for file in files if file.lower().endswith(('.png','.svg','.webp', '.jpg', '.jpeg', '.gif', '.bmp', '.tiff'))]
 
     if image_files:
         html_content = generate_html_content(image_files)
