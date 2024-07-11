@@ -21,23 +21,44 @@
                 header h1 {
                     margin: 0;
                 }
-                nav {
+                #category-nav {
+                    position: fixed;
+                    left: 0;
+                    top: 0;
+                    width: 200px;
+                    height: 100%;
+                    background-color: #444;
+                    color: white;
+                    padding: 20px;
+                    box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+                    overflow-y: auto;
+                    transition: transform 0.3s ease;
+                    transform: translateX(-100%);
+                }
+                #category-nav.open {
+                    transform: translateX(0);
+                }
+                #category-nav a {
+                    display: block;
+                    color: white;
+                    text-decoration: none;
+                    margin-bottom: 10px;
+                }
+                #category-nav a:hover {
+                    text-decoration: underline;
+                }
+                #category-toggle {
+                    position: fixed;
+                    left: 0;
+                    top: 0;
                     background-color: #444;
                     color: white;
                     padding: 10px;
-                    text-align: center;
-                }
-                nav a {
-                    margin: 0 10px;
-                    color: white;
-                    text-decoration: none;
+                    cursor: pointer;
                 }
                 .container {
-                    margin: 20px auto;
+                    margin-left: 220px;
                     padding: 20px;
-                    max-width: 1000px;
-                    background-color: white;
-                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
                 }
                 .gallery {
                     display: flex;
@@ -108,14 +129,18 @@
                         alert('复制失败: ' + err);
                     });
                 }
+                function toggleCategoryNav() {
+                    document.getElementById('category-nav').classList.toggle('open');
+                }
             </script>
         </head>
         <body>
             <header>
                 <h1>一休github简易图床系统</h1>
             </header>
-            <nav>
-        <a href="#youtube">youtube</a><a href="#blog/svg">blog/svg</a><a href="#blog/images">blog/images</a><a href="#blog/creativity">blog/creativity</a><a href="#blog/about">blog/about</a><a href="#blog/bg">blog/bg</a><a href="json/images.json" download>导出所有图片信息</a>
+            <div id="category-toggle" onclick="toggleCategoryNav()">分类</div>
+            <nav id="category-nav">
+        <a href="#youtube" onclick="toggleCategoryNav()">youtube</a><a href="#blog/svg" onclick="toggleCategoryNav()">blog/svg</a><a href="#blog/images" onclick="toggleCategoryNav()">blog/images</a><a href="#blog/creativity" onclick="toggleCategoryNav()">blog/creativity</a><a href="#blog/about" onclick="toggleCategoryNav()">blog/about</a><a href="#blog/bg" onclick="toggleCategoryNav()">blog/bg</a><a href="json/images.json" download>导出所有图片信息</a>
             </nav>
             <div class="container">
         <h2 id="youtube">youtube <a href="json/images_youtube.json" download>导出该分类图片信息</a></h2><div class="gallery">

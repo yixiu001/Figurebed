@@ -66,23 +66,44 @@ def generate_index_html(root_dir):
                 header h1 {
                     margin: 0;
                 }
-                nav {
+                #category-nav {
+                    position: fixed;
+                    left: 0;
+                    top: 0;
+                    width: 200px;
+                    height: 100%;
+                    background-color: #444;
+                    color: white;
+                    padding: 20px;
+                    box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+                    overflow-y: auto;
+                    transition: transform 0.3s ease;
+                    transform: translateX(-100%);
+                }
+                #category-nav.open {
+                    transform: translateX(0);
+                }
+                #category-nav a {
+                    display: block;
+                    color: white;
+                    text-decoration: none;
+                    margin-bottom: 10px;
+                }
+                #category-nav a:hover {
+                    text-decoration: underline;
+                }
+                #category-toggle {
+                    position: fixed;
+                    left: 0;
+                    top: 0;
                     background-color: #444;
                     color: white;
                     padding: 10px;
-                    text-align: center;
-                }
-                nav a {
-                    margin: 0 10px;
-                    color: white;
-                    text-decoration: none;
+                    cursor: pointer;
                 }
                 .container {
-                    margin: 20px auto;
+                    margin-left: 220px;
                     padding: 20px;
-                    max-width: 1000px;
-                    background-color: white;
-                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
                 }
                 .gallery {
                     display: flex;
@@ -153,18 +174,22 @@ def generate_index_html(root_dir):
                         alert('复制失败: ' + err);
                     });
                 }
+                function toggleCategoryNav() {
+                    document.getElementById('category-nav').classList.toggle('open');
+                }
             </script>
         </head>
         <body>
             <header>
                 <h1>一休github简易图床系统</h1>
             </header>
-            <nav>
+            <div id="category-toggle" onclick="toggleCategoryNav()">分类</div>
+            <nav id="category-nav">
         '''
 
         # 生成导航链接
         for category in image_files:
-            html_content += f'<a href="#{category}">{category}</a>'
+            html_content += f'<a href="#{category}" onclick="toggleCategoryNav()">{category}</a>'
         html_content += '<a href="json/images.json" download>导出所有图片信息</a>'
 
         html_content += '''
