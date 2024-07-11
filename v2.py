@@ -120,10 +120,13 @@ def generate_index_html(root_dir):
                     border: 1px solid #ddd;
                     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
                     background-color: #fff;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
                 }
                 .gallery-item img {
-                    width: 100%;
-                    height: 100%;
+                    max-width: 100%;
+                    max-height: 100%;
                     object-fit: cover;
                     transition: all 0.3s ease;
                 }
@@ -226,7 +229,7 @@ def generate_index_html(root_dir):
                 })
                 html_content += f'''
                 <div class="gallery-item">
-                    <img src="{https_url}" alt="{os.path.basename(file)}">
+                    <img src="{https_url}" alt="{os.path.basename(file)}" onerror="this.onerror=null;this.src='{cdn_url_complete}';">
                     <div class="link-overlay">
                         <a href="{https_url}" target="_blank" onclick="copyToClipboard('{https_url}'); return false;">HTTPS 访问地址</a>
                         <a href="{cdn_url_complete}" target="_blank" onclick="copyToClipboard('{cdn_url_complete}'); return false;">jsdelivr CDN 加速地址</a>
