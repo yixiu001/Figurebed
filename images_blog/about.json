@@ -1,0 +1,22 @@
+[
+    {
+        "file": "blog/about/favicon.ico",
+        "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/about/favicon.ico",
+        "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/about/favicon.ico"
+    },
+    {
+        "file": "blog/about/logo.jpg",
+        "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/about/logo.jpg",
+        "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/about/logo.jpg"
+    },
+    {
+        "file": "blog/about/alipay.png",
+        "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/about/alipay.png",
+        "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/about/alipay.png"
+    },
+    {
+        "file": "blog/about/wechatpay.png",
+        "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/about/wechatpay.png",
+        "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/about/wechatpay.png"
+    }
+]

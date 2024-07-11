@@ -141,6 +141,15 @@ def generate_index_html(root_dir):
                     bottom: 0;
                 }
             </style>
+            <script>
+                function copyToClipboard(text) {
+                    navigator.clipboard.writeText(text).then(function() {
+                        alert('复制成功: ' + text);
+                    }, function(err) {
+                        alert('复制失败: ' + err);
+                    });
+                }
+            </script>
         </head>
         <body>
             <header>
@@ -178,13 +187,16 @@ def generate_index_html(root_dir):
                 <div class="gallery-item">
                     <img src="{https_url}" alt="{os.path.basename(file)}">
                     <div class="link-overlay">
-                        <a href="{https_url}" target="_blank">HTTPS 访问地址</a>
-                        <a href="{cdn_url_complete}" target="_blank">jsdelivr CDN 加速地址</a>
+                        <a href="{https_url}" target="_blank" onclick="copyToClipboard('{https_url}'); return false;">HTTPS 访问地址</a>
+                        <a href="{cdn_url_complete}" target="_blank" onclick="copyToClipboard('{cdn_url_complete}'); return false;">jsdelivr CDN 加速地址</a>
                     </div>
                 </div>
                 '''
 
-            with open(os.path.join(root_dir, f'images_{category}.json'), 'w', encoding='utf-8') as category_json_file:
+            # 确保目录存在
+            category_json_file_path = os.path.join(root_dir, f'images_{category}.json')
+            os.makedirs(os.path.dirname(category_json_file_path), exist_ok=True)
+            with open(category_json_file_path, 'w', encoding='utf-8') as category_json_file:
                 json.dump(category_json_data, category_json_file, ensure_ascii=False, indent=4)
 
             html_content += '</div>'

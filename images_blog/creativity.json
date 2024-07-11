@@ -1,0 +1,77 @@
+[
+    {
+        "file": "blog/creativity/Git.webp",
+        "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Git.webp",
+        "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Git.webp"
+    },
+    {
+        "file": "blog/creativity/Docker.png",
+        "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Docker.png",
+        "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Docker.png"
+    },
+    {
+        "file": "blog/creativity/Python.png",
+        "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Python.png",
+        "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Python.png"
+    },
+    {
+        "file": "blog/creativity/Flutter.png",
+        "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Flutter.png",
+        "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Flutter.png"
+    },
+    {
+        "file": "blog/creativity/Pinia.svg",
+        "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Pinia.svg",
+        "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Pinia.svg"
+    },
+    {
+        "file": "blog/creativity/Java.jpg",
+        "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Java.jpg",
+        "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Java.jpg"
+    },
+    {
+        "file": "blog/creativity/Vue.png",
+        "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Vue.png",
+        "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Vue.png"
+    },
+    {
+        "file": "blog/creativity/JS.png",
+        "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/JS.png",
+        "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/JS.png"
+    },
+    {
+        "file": "blog/creativity/Webpack.png",
+        "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Webpack.png",
+        "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Webpack.png"
+    },
+    {
+        "file": "blog/creativity/Vite.svg",
+        "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Vite.svg",
+        "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Vite.svg"
+    },
+    {
+        "file": "blog/creativity/HTML.png",
+        "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/HTML.png",
+        "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/HTML.png"
+    },
+    {
+        "file": "blog/creativity/CSS3.png",
+        "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/CSS3.png",
+        "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/CSS3.png"
+    },
+    {
+        "file": "blog/creativity/Photoshop.png",
+        "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Photoshop.png",
+        "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Photoshop.png"
+    },
+    {
+        "file": "blog/creativity/Apifox.png",
+        "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Apifox.png",
+        "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Apifox.png"
+    },
+    {
+        "file": "blog/creativity/Node.svg",
+        "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Node.svg",
+        "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Node.svg"
+    }
+]

@@ -1,0 +1,22 @@
+[
+    {
+        "file": "blog/images/error_404.gif",
+        "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/images/error_404.gif",
+        "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/error_404.gif"
+    },
+    {
+        "file": "blog/images/地球.jpg",
+        "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/images/地球.jpg",
+        "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/地球.jpg"
+    },
+    {
+        "file": "blog/images/loading.gif",
+        "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/images/loading.gif",
+        "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/loading.gif"
+    },
+    {
+        "file": "blog/images/404.gif",
+        "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/images/404.gif",
+        "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/404.gif"
+    }
+]
