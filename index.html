@@ -107,6 +107,9 @@
                     margin: 5px;
                     color: #007bff;
                     text-decoration: none;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
                 }
                 .link-overlay a:hover {
                     text-decoration: underline;
@@ -141,16 +144,6 @@
                         categoryNav.classList.remove('open');
                     }
                 });
-                function toggleMoreLinks(event) {
-                    var moreLinks = event.currentTarget.previousElementSibling;
-                    if (moreLinks.style.display === "block") {
-                        moreLinks.style.display = "none";
-                        event.currentTarget.innerText = "更多";
-                    } else {
-                        moreLinks.style.display = "block";
-                        event.currentTarget.innerText = "收起";
-                    }
-                }
             </script>
         </head>
         <body>
@@ -166,369 +159,270 @@
                 <div class="gallery-item">
                     <img src="https://github.com/yixiu001/Figurebed/raw/main/youtube/US.KG注册.png" alt="US.KG注册.png">
                     <div class="link-overlay">
-                        <div class="more-links" style="display: none;">
-                            <a href="https://github.com/yixiu001/Figurebed/raw/main/youtube/US.KG注册.png" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/youtube/US.KG注册.png'); return false;">HTTPS 访问地址</a>
-                            <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/youtube/US.KG注册.png" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/youtube/US.KG注册.png'); return false;">jsdelivr CDN 加速地址</a>
-                        </div>
-                        <button onclick="toggleMoreLinks(event)">更多</button>
+                        <a href="https://github.com/yixiu001/Figurebed/raw/main/youtube/US.KG注册.png" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/youtube/US.KG注册.png'); return false;">HTTPS 访问地址</a>
+                        <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/youtube/US.KG注册.png" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/youtube/US.KG注册.png'); return false;">jsdelivr CDN 加速地址</a>
                     </div>
                 </div>
                 
                 <div class="gallery-item">
                     <img src="https://github.com/yixiu001/Figurebed/raw/main/youtube/美区AppleID.webp" alt="美区AppleID.webp">
                     <div class="link-overlay">
-                        <div class="more-links" style="display: none;">
-                            <a href="https://github.com/yixiu001/Figurebed/raw/main/youtube/美区AppleID.webp" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/youtube/美区AppleID.webp'); return false;">HTTPS 访问地址</a>
-                            <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/youtube/美区AppleID.webp" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/youtube/美区AppleID.webp'); return false;">jsdelivr CDN 加速地址</a>
-                        </div>
-                        <button onclick="toggleMoreLinks(event)">更多</button>
+                        <a href="https://github.com/yixiu001/Figurebed/raw/main/youtube/美区AppleID.webp" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/youtube/美区AppleID.webp'); return false;">HTTPS 访问地址</a>
+                        <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/youtube/美区AppleID.webp" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/youtube/美区AppleID.webp'); return false;">jsdelivr CDN 加速地址</a>
                     </div>
                 </div>
                 
                 <div class="gallery-item">
                     <img src="https://github.com/yixiu001/Figurebed/raw/main/youtube/ClouDNS注册.webp" alt="ClouDNS注册.webp">
                     <div class="link-overlay">
-                        <div class="more-links" style="display: none;">
-                            <a href="https://github.com/yixiu001/Figurebed/raw/main/youtube/ClouDNS注册.webp" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/youtube/ClouDNS注册.webp'); return false;">HTTPS 访问地址</a>
-                            <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/youtube/ClouDNS注册.webp" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/youtube/ClouDNS注册.webp'); return false;">jsdelivr CDN 加速地址</a>
-                        </div>
-                        <button onclick="toggleMoreLinks(event)">更多</button>
+                        <a href="https://github.com/yixiu001/Figurebed/raw/main/youtube/ClouDNS注册.webp" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/youtube/ClouDNS注册.webp'); return false;">HTTPS 访问地址</a>
+                        <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/youtube/ClouDNS注册.webp" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/youtube/ClouDNS注册.webp'); return false;">jsdelivr CDN 加速地址</a>
                     </div>
                 </div>
                 </div><h2 id="blog/svg">blog/svg <a href="json/images_blog/svg.json" download style="color: yellow;">导出该分类图片信息</a></h2><div class="gallery">
                 <div class="gallery-item">
                     <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/svg/一休-下班啦.svg" alt="一休-下班啦.svg">
                     <div class="link-overlay">
-                        <div class="more-links" style="display: none;">
-                            <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/svg/一休-下班啦.svg" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/svg/一休-下班啦.svg'); return false;">HTTPS 访问地址</a>
-                            <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/svg/一休-下班啦.svg" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/svg/一休-下班啦.svg'); return false;">jsdelivr CDN 加速地址</a>
-                        </div>
-                        <button onclick="toggleMoreLinks(event)">更多</button>
+                        <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/svg/一休-下班啦.svg" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/svg/一休-下班啦.svg'); return false;">HTTPS 访问地址</a>
+                        <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/svg/一休-下班啦.svg" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/svg/一休-下班啦.svg'); return false;">jsdelivr CDN 加速地址</a>
                     </div>
                 </div>
                 
                 <div class="gallery-item">
                     <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/svg/INTP-A.svg" alt="INTP-A.svg">
                     <div class="link-overlay">
-                        <div class="more-links" style="display: none;">
-                            <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/svg/INTP-A.svg" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/svg/INTP-A.svg'); return false;">HTTPS 访问地址</a>
-                            <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/svg/INTP-A.svg" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/svg/INTP-A.svg'); return false;">jsdelivr CDN 加速地址</a>
-                        </div>
-                        <button onclick="toggleMoreLinks(event)">更多</button>
+                        <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/svg/INTP-A.svg" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/svg/INTP-A.svg'); return false;">HTTPS 访问地址</a>
+                        <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/svg/INTP-A.svg" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/svg/INTP-A.svg'); return false;">jsdelivr CDN 加速地址</a>
                     </div>
                 </div>
                 
                 <div class="gallery-item">
                     <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/svg/一休-上班摸鱼中.svg" alt="一休-上班摸鱼中.svg">
                     <div class="link-overlay">
-                        <div class="more-links" style="display: none;">
-                            <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/svg/一休-上班摸鱼中.svg" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/svg/一休-上班摸鱼中.svg'); return false;">HTTPS 访问地址</a>
-                            <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/svg/一休-上班摸鱼中.svg" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/svg/一休-上班摸鱼中.svg'); return false;">jsdelivr CDN 加速地址</a>
-                        </div>
-                        <button onclick="toggleMoreLinks(event)">更多</button>
+                        <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/svg/一休-上班摸鱼中.svg" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/svg/一休-上班摸鱼中.svg'); return false;">HTTPS 访问地址</a>
+                        <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/svg/一休-上班摸鱼中.svg" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/svg/一休-上班摸鱼中.svg'); return false;">jsdelivr CDN 加速地址</a>
                     </div>
                 </div>
                 </div><h2 id="blog/images">blog/images <a href="json/images_blog/images.json" download style="color: yellow;">导出该分类图片信息</a></h2><div class="gallery">
                 <div class="gallery-item">
                     <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/images/error_404.gif" alt="error_404.gif">
                     <div class="link-overlay">
-                        <div class="more-links" style="display: none;">
-                            <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/images/error_404.gif" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/images/error_404.gif'); return false;">HTTPS 访问地址</a>
-                            <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/error_404.gif" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/error_404.gif'); return false;">jsdelivr CDN 加速地址</a>
-                        </div>
-                        <button onclick="toggleMoreLinks(event)">更多</button>
+                        <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/images/error_404.gif" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/images/error_404.gif'); return false;">HTTPS 访问地址</a>
+                        <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/error_404.gif" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/error_404.gif'); return false;">jsdelivr CDN 加速地址</a>
                     </div>
                 </div>
                 
                 <div class="gallery-item">
                     <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/images/地球.jpg" alt="地球.jpg">
                     <div class="link-overlay">
-                        <div class="more-links" style="display: none;">
-                            <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/images/地球.jpg" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/images/地球.jpg'); return false;">HTTPS 访问地址</a>
-                            <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/地球.jpg" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/地球.jpg'); return false;">jsdelivr CDN 加速地址</a>
-                        </div>
-                        <button onclick="toggleMoreLinks(event)">更多</button>
+                        <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/images/地球.jpg" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/images/地球.jpg'); return false;">HTTPS 访问地址</a>
+                        <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/地球.jpg" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/地球.jpg'); return false;">jsdelivr CDN 加速地址</a>
                     </div>
                 </div>
                 
                 <div class="gallery-item">
                     <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/images/loading.gif" alt="loading.gif">
                     <div class="link-overlay">
-                        <div class="more-links" style="display: none;">
-                            <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/images/loading.gif" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/images/loading.gif'); return false;">HTTPS 访问地址</a>
-                            <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/loading.gif" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/loading.gif'); return false;">jsdelivr CDN 加速地址</a>
-                        </div>
-                        <button onclick="toggleMoreLinks(event)">更多</button>
+                        <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/images/loading.gif" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/images/loading.gif'); return false;">HTTPS 访问地址</a>
+                        <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/loading.gif" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/loading.gif'); return false;">jsdelivr CDN 加速地址</a>
                     </div>
                 </div>
                 
                 <div class="gallery-item">
                     <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/images/404.gif" alt="404.gif">
                     <div class="link-overlay">
-                        <div class="more-links" style="display: none;">
-                            <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/images/404.gif" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/images/404.gif'); return false;">HTTPS 访问地址</a>
-                            <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/404.gif" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/404.gif'); return false;">jsdelivr CDN 加速地址</a>
-                        </div>
-                        <button onclick="toggleMoreLinks(event)">更多</button>
+                        <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/images/404.gif" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/images/404.gif'); return false;">HTTPS 访问地址</a>
+                        <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/404.gif" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/404.gif'); return false;">jsdelivr CDN 加速地址</a>
                     </div>
                 </div>
                 </div><h2 id="blog/creativity">blog/creativity <a href="json/images_blog/creativity.json" download style="color: yellow;">导出该分类图片信息</a></h2><div class="gallery">
                 <div class="gallery-item">
                     <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Git.webp" alt="Git.webp">
                     <div class="link-overlay">
-                        <div class="more-links" style="display: none;">
-                            <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Git.webp" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Git.webp'); return false;">HTTPS 访问地址</a>
-                            <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Git.webp" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Git.webp'); return false;">jsdelivr CDN 加速地址</a>
-                        </div>
-                        <button onclick="toggleMoreLinks(event)">更多</button>
+                        <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Git.webp" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Git.webp'); return false;">HTTPS 访问地址</a>
+                        <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Git.webp" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Git.webp'); return false;">jsdelivr CDN 加速地址</a>
                     </div>
                 </div>
                 
                 <div class="gallery-item">
                     <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Docker.png" alt="Docker.png">
                     <div class="link-overlay">
-                        <div class="more-links" style="display: none;">
-                            <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Docker.png" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Docker.png'); return false;">HTTPS 访问地址</a>
-                            <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Docker.png" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Docker.png'); return false;">jsdelivr CDN 加速地址</a>
-                        </div>
-                        <button onclick="toggleMoreLinks(event)">更多</button>
+                        <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Docker.png" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Docker.png'); return false;">HTTPS 访问地址</a>
+                        <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Docker.png" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Docker.png'); return false;">jsdelivr CDN 加速地址</a>
                     </div>
                 </div>
                 
                 <div class="gallery-item">
                     <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Python.png" alt="Python.png">
                     <div class="link-overlay">
-                        <div class="more-links" style="display: none;">
-                            <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Python.png" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Python.png'); return false;">HTTPS 访问地址</a>
-                            <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Python.png" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Python.png'); return false;">jsdelivr CDN 加速地址</a>
-                        </div>
-                        <button onclick="toggleMoreLinks(event)">更多</button>
+                        <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Python.png" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Python.png'); return false;">HTTPS 访问地址</a>
+                        <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Python.png" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Python.png'); return false;">jsdelivr CDN 加速地址</a>
                     </div>
                 </div>
                 
                 <div class="gallery-item">
                     <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Flutter.png" alt="Flutter.png">
                     <div class="link-overlay">
-                        <div class="more-links" style="display: none;">
-                            <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Flutter.png" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Flutter.png'); return false;">HTTPS 访问地址</a>
-                            <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Flutter.png" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Flutter.png'); return false;">jsdelivr CDN 加速地址</a>
-                        </div>
-                        <button onclick="toggleMoreLinks(event)">更多</button>
+                        <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Flutter.png" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Flutter.png'); return false;">HTTPS 访问地址</a>
+                        <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Flutter.png" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Flutter.png'); return false;">jsdelivr CDN 加速地址</a>
                     </div>
                 </div>
                 
                 <div class="gallery-item">
                     <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Pinia.svg" alt="Pinia.svg">
                     <div class="link-overlay">
-                        <div class="more-links" style="display: none;">
-                            <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Pinia.svg" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Pinia.svg'); return false;">HTTPS 访问地址</a>
-                            <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Pinia.svg" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Pinia.svg'); return false;">jsdelivr CDN 加速地址</a>
-                        </div>
-                        <button onclick="toggleMoreLinks(event)">更多</button>
+                        <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Pinia.svg" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Pinia.svg'); return false;">HTTPS 访问地址</a>
+                        <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Pinia.svg" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Pinia.svg'); return false;">jsdelivr CDN 加速地址</a>
                     </div>
                 </div>
                 
                 <div class="gallery-item">
                     <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Java.jpg" alt="Java.jpg">
                     <div class="link-overlay">
-                        <div class="more-links" style="display: none;">
-                            <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Java.jpg" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Java.jpg'); return false;">HTTPS 访问地址</a>
-                            <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Java.jpg" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Java.jpg'); return false;">jsdelivr CDN 加速地址</a>
-                        </div>
-                        <button onclick="toggleMoreLinks(event)">更多</button>
+                        <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Java.jpg" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Java.jpg'); return false;">HTTPS 访问地址</a>
+                        <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Java.jpg" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Java.jpg'); return false;">jsdelivr CDN 加速地址</a>
                     </div>
                 </div>
                 
                 <div class="gallery-item">
                     <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Vue.png" alt="Vue.png">
                     <div class="link-overlay">
-                        <div class="more-links" style="display: none;">
-                            <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Vue.png" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Vue.png'); return false;">HTTPS 访问地址</a>
-                            <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Vue.png" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Vue.png'); return false;">jsdelivr CDN 加速地址</a>
-                        </div>
-                        <button onclick="toggleMoreLinks(event)">更多</button>
+                        <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Vue.png" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Vue.png'); return false;">HTTPS 访问地址</a>
+                        <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Vue.png" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Vue.png'); return false;">jsdelivr CDN 加速地址</a>
                     </div>
                 </div>
                 
                 <div class="gallery-item">
                     <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/JS.png" alt="JS.png">
                     <div class="link-overlay">
-                        <div class="more-links" style="display: none;">
-                            <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/JS.png" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/JS.png'); return false;">HTTPS 访问地址</a>
-                            <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/JS.png" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/JS.png'); return false;">jsdelivr CDN 加速地址</a>
-                        </div>
-                        <button onclick="toggleMoreLinks(event)">更多</button>
+                        <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/JS.png" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/JS.png'); return false;">HTTPS 访问地址</a>
+                        <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/JS.png" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/JS.png'); return false;">jsdelivr CDN 加速地址</a>
                     </div>
                 </div>
                 
                 <div class="gallery-item">
                     <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Webpack.png" alt="Webpack.png">
                     <div class="link-overlay">
-                        <div class="more-links" style="display: none;">
-                            <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Webpack.png" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Webpack.png'); return false;">HTTPS 访问地址</a>
-                            <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Webpack.png" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Webpack.png'); return false;">jsdelivr CDN 加速地址</a>
-                        </div>
-                        <button onclick="toggleMoreLinks(event)">更多</button>
+                        <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Webpack.png" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Webpack.png'); return false;">HTTPS 访问地址</a>
+                        <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Webpack.png" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Webpack.png'); return false;">jsdelivr CDN 加速地址</a>
                     </div>
                 </div>
                 
                 <div class="gallery-item">
                     <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Vite.svg" alt="Vite.svg">
                     <div class="link-overlay">
-                        <div class="more-links" style="display: none;">
-                            <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Vite.svg" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Vite.svg'); return false;">HTTPS 访问地址</a>
-                            <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Vite.svg" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Vite.svg'); return false;">jsdelivr CDN 加速地址</a>
-                        </div>
-                        <button onclick="toggleMoreLinks(event)">更多</button>
+                        <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Vite.svg" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Vite.svg'); return false;">HTTPS 访问地址</a>
+                        <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Vite.svg" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Vite.svg'); return false;">jsdelivr CDN 加速地址</a>
                     </div>
                 </div>
                 
                 <div class="gallery-item">
                     <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/HTML.png" alt="HTML.png">
                     <div class="link-overlay">
-                        <div class="more-links" style="display: none;">
-                            <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/HTML.png" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/HTML.png'); return false;">HTTPS 访问地址</a>
-                            <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/HTML.png" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/HTML.png'); return false;">jsdelivr CDN 加速地址</a>
-                        </div>
-                        <button onclick="toggleMoreLinks(event)">更多</button>
+                        <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/HTML.png" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/HTML.png'); return false;">HTTPS 访问地址</a>
+                        <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/HTML.png" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/HTML.png'); return false;">jsdelivr CDN 加速地址</a>
                     </div>
                 </div>
                 
                 <div class="gallery-item">
                     <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/CSS3.png" alt="CSS3.png">
                     <div class="link-overlay">
-                        <div class="more-links" style="display: none;">
-                            <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/CSS3.png" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/CSS3.png'); return false;">HTTPS 访问地址</a>
-                            <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/CSS3.png" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/CSS3.png'); return false;">jsdelivr CDN 加速地址</a>
-                        </div>
-                        <button onclick="toggleMoreLinks(event)">更多</button>
+                        <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/CSS3.png" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/CSS3.png'); return false;">HTTPS 访问地址</a>
+                        <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/CSS3.png" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/CSS3.png'); return false;">jsdelivr CDN 加速地址</a>
                     </div>
                 </div>
                 
                 <div class="gallery-item">
                     <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Photoshop.png" alt="Photoshop.png">
                     <div class="link-overlay">
-                        <div class="more-links" style="display: none;">
-                            <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Photoshop.png" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Photoshop.png'); return false;">HTTPS 访问地址</a>
-                            <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Photoshop.png" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Photoshop.png'); return false;">jsdelivr CDN 加速地址</a>
-                        </div>
-                        <button onclick="toggleMoreLinks(event)">更多</button>
+                        <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Photoshop.png" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Photoshop.png'); return false;">HTTPS 访问地址</a>
+                        <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Photoshop.png" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Photoshop.png'); return false;">jsdelivr CDN 加速地址</a>
                     </div>
                 </div>
                 
                 <div class="gallery-item">
                     <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Apifox.png" alt="Apifox.png">
                     <div class="link-overlay">
-                        <div class="more-links" style="display: none;">
-                            <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Apifox.png" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Apifox.png'); return false;">HTTPS 访问地址</a>
-                            <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Apifox.png" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Apifox.png'); return false;">jsdelivr CDN 加速地址</a>
-                        </div>
-                        <button onclick="toggleMoreLinks(event)">更多</button>
+                        <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Apifox.png" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Apifox.png'); return false;">HTTPS 访问地址</a>
+                        <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Apifox.png" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Apifox.png'); return false;">jsdelivr CDN 加速地址</a>
                     </div>
                 </div>
                 
                 <div class="gallery-item">
                     <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Node.svg" alt="Node.svg">
                     <div class="link-overlay">
-                        <div class="more-links" style="display: none;">
-                            <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Node.svg" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Node.svg'); return false;">HTTPS 访问地址</a>
-                            <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Node.svg" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Node.svg'); return false;">jsdelivr CDN 加速地址</a>
-                        </div>
-                        <button onclick="toggleMoreLinks(event)">更多</button>
+                        <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Node.svg" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Node.svg'); return false;">HTTPS 访问地址</a>
+                        <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Node.svg" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Node.svg'); return false;">jsdelivr CDN 加速地址</a>
                     </div>
                 </div>
                 </div><h2 id="blog/about">blog/about <a href="json/images_blog/about.json" download style="color: yellow;">导出该分类图片信息</a></h2><div class="gallery">
                 <div class="gallery-item">
                     <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/about/favicon.ico" alt="favicon.ico">
                     <div class="link-overlay">
-                        <div class="more-links" style="display: none;">
-                            <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/about/favicon.ico" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/about/favicon.ico'); return false;">HTTPS 访问地址</a>
-                            <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/about/favicon.ico" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/about/favicon.ico'); return false;">jsdelivr CDN 加速地址</a>
-                        </div>
-                        <button onclick="toggleMoreLinks(event)">更多</button>
+                        <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/about/favicon.ico" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/about/favicon.ico'); return false;">HTTPS 访问地址</a>
+                        <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/about/favicon.ico" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/about/favicon.ico'); return false;">jsdelivr CDN 加速地址</a>
                     </div>
                 </div>
                 
                 <div class="gallery-item">
                     <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/about/logo.jpg" alt="logo.jpg">
                     <div class="link-overlay">
-                        <div class="more-links" style="display: none;">
-                            <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/about/logo.jpg" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/about/logo.jpg'); return false;">HTTPS 访问地址</a>
-                            <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/about/logo.jpg" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/about/logo.jpg'); return false;">jsdelivr CDN 加速地址</a>
-                        </div>
-                        <button onclick="toggleMoreLinks(event)">更多</button>
+                        <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/about/logo.jpg" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/about/logo.jpg'); return false;">HTTPS 访问地址</a>
+                        <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/about/logo.jpg" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/about/logo.jpg'); return false;">jsdelivr CDN 加速地址</a>
                     </div>
                 </div>
                 
                 <div class="gallery-item">
                     <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/about/alipay.png" alt="alipay.png">
                     <div class="link-overlay">
-                        <div class="more-links" style="display: none;">
-                            <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/about/alipay.png" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/about/alipay.png'); return false;">HTTPS 访问地址</a>
-                            <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/about/alipay.png" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/about/alipay.png'); return false;">jsdelivr CDN 加速地址</a>
-                        </div>
-                        <button onclick="toggleMoreLinks(event)">更多</button>
+                        <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/about/alipay.png" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/about/alipay.png'); return false;">HTTPS 访问地址</a>
+                        <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/about/alipay.png" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/about/alipay.png'); return false;">jsdelivr CDN 加速地址</a>
                     </div>
                 </div>
                 
                 <div class="gallery-item">
                     <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/about/wechatpay.png" alt="wechatpay.png">
                     <div class="link-overlay">
-                        <div class="more-links" style="display: none;">
-                            <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/about/wechatpay.png" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/about/wechatpay.png'); return false;">HTTPS 访问地址</a>
-                            <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/about/wechatpay.png" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/about/wechatpay.png'); return false;">jsdelivr CDN 加速地址</a>
-                        </div>
-                        <button onclick="toggleMoreLinks(event)">更多</button>
+                        <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/about/wechatpay.png" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/about/wechatpay.png'); return false;">HTTPS 访问地址</a>
+                        <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/about/wechatpay.png" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/about/wechatpay.png'); return false;">jsdelivr CDN 加速地址</a>
                     </div>
                 </div>
                 </div><h2 id="blog/bg">blog/bg <a href="json/images_blog/bg.json" download style="color: yellow;">导出该分类图片信息</a></h2><div class="gallery">
                 <div class="gallery-item">
                     <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg4.jpg" alt="bg4.jpg">
                     <div class="link-overlay">
-                        <div class="more-links" style="display: none;">
-                            <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg4.jpg" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg4.jpg'); return false;">HTTPS 访问地址</a>
-                            <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg4.jpg" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg4.jpg'); return false;">jsdelivr CDN 加速地址</a>
-                        </div>
-                        <button onclick="toggleMoreLinks(event)">更多</button>
+                        <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg4.jpg" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg4.jpg'); return false;">HTTPS 访问地址</a>
+                        <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg4.jpg" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg4.jpg'); return false;">jsdelivr CDN 加速地址</a>
                     </div>
                 </div>
                 
                 <div class="gallery-item">
                     <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg1.jpg" alt="bg1.jpg">
                     <div class="link-overlay">
-                        <div class="more-links" style="display: none;">
-                            <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg1.jpg" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg1.jpg'); return false;">HTTPS 访问地址</a>
-                            <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg1.jpg" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg1.jpg'); return false;">jsdelivr CDN 加速地址</a>
-                        </div>
-                        <button onclick="toggleMoreLinks(event)">更多</button>
+                        <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg1.jpg" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg1.jpg'); return false;">HTTPS 访问地址</a>
+                        <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg1.jpg" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg1.jpg'); return false;">jsdelivr CDN 加速地址</a>
                     </div>
                 </div>
                 
                 <div class="gallery-item">
                     <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg3.jpg" alt="bg3.jpg">
                     <div class="link-overlay">
-                        <div class="more-links" style="display: none;">
-                            <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg3.jpg" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg3.jpg'); return false;">HTTPS 访问地址</a>
-                            <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg3.jpg" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg3.jpg'); return false;">jsdelivr CDN 加速地址</a>
-                        </div>
-                        <button onclick="toggleMoreLinks(event)">更多</button>
+                        <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg3.jpg" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg3.jpg'); return false;">HTTPS 访问地址</a>
+                        <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg3.jpg" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg3.jpg'); return false;">jsdelivr CDN 加速地址</a>
                     </div>
                 </div>
                 
                 <div class="gallery-item">
                     <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg2.jpg" alt="bg2.jpg">
                     <div class="link-overlay">
-                        <div class="more-links" style="display: none;">
-                            <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg2.jpg" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg2.jpg'); return false;">HTTPS 访问地址</a>
-                            <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg2.jpg" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg2.jpg'); return false;">jsdelivr CDN 加速地址</a>
-                        </div>
-                        <button onclick="toggleMoreLinks(event)">更多</button>
+                        <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg2.jpg" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg2.jpg'); return false;">HTTPS 访问地址</a>
+                        <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg2.jpg" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg2.jpg'); return false;">jsdelivr CDN 加速地址</a>
                     </div>
                 </div>
                 </div>
             </div>
             <footer>
-                &copy; <a href="https://github.com/yixiu001/Figurebed" >2024 一休github简易图床系统</a>
+                &copy; <a href="https://github.com/yixiu001/Figurebed">2024 一休github简易图床系统</a>
             </footer>
         </body>
         </html>

@@ -152,6 +152,9 @@ def generate_index_html(root_dir):
                     margin: 5px;
                     color: #007bff;
                     text-decoration: none;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
                 }
                 .link-overlay a:hover {
                     text-decoration: underline;
@@ -186,16 +189,6 @@ def generate_index_html(root_dir):
                         categoryNav.classList.remove('open');
                     }
                 });
-                function toggleMoreLinks(event) {
-                    var moreLinks = event.currentTarget.previousElementSibling;
-                    if (moreLinks.style.display === "block") {
-                        moreLinks.style.display = "none";
-                        event.currentTarget.innerText = "更多";
-                    } else {
-                        moreLinks.style.display = "block";
-                        event.currentTarget.innerText = "收起";
-                    }
-                }
             </script>
         </head>
         <body>
@@ -222,7 +215,7 @@ def generate_index_html(root_dir):
 
             category_json_data = []
 
-            for i, file in enumerate(files):
+            for file in files:
                 file_path = os.path.relpath(file, root_dir)
                 https_url = base_url + file_path
                 cdn_url_complete = cdn_url + file_path
@@ -235,11 +228,8 @@ def generate_index_html(root_dir):
                 <div class="gallery-item">
                     <img src="{https_url}" alt="{os.path.basename(file)}">
                     <div class="link-overlay">
-                        <div class="more-links" style="display: none;">
-                            <a href="{https_url}" target="_blank" onclick="copyToClipboard('{https_url}'); return false;">HTTPS 访问地址</a>
-                            <a href="{cdn_url_complete}" target="_blank" onclick="copyToClipboard('{cdn_url_complete}'); return false;">jsdelivr CDN 加速地址</a>
-                        </div>
-                        <button onclick="toggleMoreLinks(event)">更多</button>
+                        <a href="{https_url}" target="_blank" onclick="copyToClipboard('{https_url}'); return false;">HTTPS 访问地址</a>
+                        <a href="{cdn_url_complete}" target="_blank" onclick="copyToClipboard('{cdn_url_complete}'); return false;">jsdelivr CDN 加速地址</a>
                     </div>
                 </div>
                 '''
@@ -254,7 +244,7 @@ def generate_index_html(root_dir):
         html_content += '''
             </div>
             <footer>
-                &copy; <a href="https://github.com/yixiu001/Figurebed" >2024 一休github简易图床系统</a>
+                &copy; <a href="https://github.com/yixiu001/Figurebed">2024 一休github简易图床系统</a>
             </footer>
         </body>
         </html>
