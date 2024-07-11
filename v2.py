@@ -69,6 +69,7 @@ def generate_index_html(root_dir):
                     justify-content: center;
                 }
                 .gallery-item {
+                    position: relative;
                     width: 200px;
                     height: 200px;
                     text-align: center;
@@ -76,23 +77,41 @@ def generate_index_html(root_dir):
                     border: 1px solid #ddd;
                     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
                     background-color: #fff;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: space-between;
-                    padding: 10px;
                 }
                 .gallery-item img {
                     width: 100%;
                     height: 100%;
                     object-fit: cover;
+                    transition: all 0.3s ease;
                 }
-                .gallery-item a {
-                    display: block;
-                    margin-top: 5px;
+                .gallery-item:hover img {
+                    filter: blur(4px);
+                }
+                .gallery-item .link-overlay {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(255, 255, 255, 0.8);
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    opacity: 0;
+                    transition: opacity 0.3s ease;
+                    text-align: center;
+                }
+                .gallery-item:hover .link-overlay {
+                    opacity: 1;
+                }
+                .link-overlay a {
+                    margin: 5px;
                     color: #007bff;
                     text-decoration: none;
-                    word-wrap: break-word;
-                    cursor: pointer;
+                }
+                .link-overlay a:hover {
+                    text-decoration: underline;
                 }
                 footer {
                     text-align: center;
@@ -104,15 +123,6 @@ def generate_index_html(root_dir):
                     bottom: 0;
                 }
             </style>
-            <script>
-                function copyToClipboard(text) {
-                    navigator.clipboard.writeText(text).then(function() {
-                        alert('复制成功: ' + text);
-                    }, function(err) {
-                        alert('复制失败: ' + err);
-                    });
-                }
-            </script>
         </head>
         <body>
             <header>
@@ -141,8 +151,10 @@ def generate_index_html(root_dir):
                 html_content += f'''
                 <div class="gallery-item">
                     <img src="{https_url}" alt="{os.path.basename(file)}">
-                    <a onclick="copyToClipboard('{https_url}')">HTTPS 访问地址</a>
-                    <a onclick="copyToClipboard('{cdn_url_complete}')">jsdelivr CDN 加速地址</a>
+                    <div class="link-overlay">
+                        <a href="{https_url}" target="_blank">HTTPS 访问地址</a>
+                        <a href="{cdn_url_complete}" target="_blank">jsdelivr CDN 加速地址</a>
+                    </div>
                 </div>
                 '''
 
