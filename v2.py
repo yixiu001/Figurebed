@@ -229,7 +229,7 @@ def generate_index_html(root_dir):
                 })
                 html_content += f'''
                 <div class="gallery-item">
-                    <img src="{https_url}" alt="{os.path.basename(file)}" onerror="this.onerror=null;this.src='{cdn_url_complete}';">
+                    <img src="{cdn_url_complete}" alt="{os.path.basename(file)}" onerror="this.onerror=null;this.src='{https_url}';">
                     <div class="link-overlay">
                         <a href="{https_url}" target="_blank" onclick="copyToClipboard('{https_url}'); return false;">HTTPS 访问地址</a>
                         <a href="{cdn_url_complete}" target="_blank" onclick="copyToClipboard('{cdn_url_complete}'); return false;">jsdelivr CDN 加速地址</a>
@@ -256,10 +256,14 @@ def generate_index_html(root_dir):
 
     if image_files:
         html_content = generate_html_content(image_files)
-        with open(os.path.join(root_dir, 'index.html'), 'w', encoding='utf-8') as f:
-            f.write(html_content)
-    else:
-        print(f"No image files found in {root_dir}")
+        with open(os.path.join
 
+(root_dir, 'index.html'), 'w', encoding='utf-8') as html_file:
+            html_file.write(html_content)
+        return True
+    return False
+
+# 测试示例
 if __name__ == "__main__":
-    generate_index_html('.')
+    root_dir = '.'  # 假设根目录为当前目录
+    generate_index_html(root_dir)
