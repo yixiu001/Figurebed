@@ -76,6 +76,10 @@ def generate_index_html(root_dir):
                     border: 1px solid #ddd;
                     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
                     background-color: #fff;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    padding: 10px;
                 }
                 .gallery-item img {
                     width: 100%;
@@ -84,10 +88,11 @@ def generate_index_html(root_dir):
                 }
                 .gallery-item a {
                     display: block;
-                    margin-top: 10px;
+                    margin-top: 5px;
                     color: #007bff;
                     text-decoration: none;
                     word-wrap: break-word;
+                    cursor: pointer;
                 }
                 footer {
                     text-align: center;
@@ -99,6 +104,15 @@ def generate_index_html(root_dir):
                     bottom: 0;
                 }
             </style>
+            <script>
+                function copyToClipboard(text) {
+                    navigator.clipboard.writeText(text).then(function() {
+                        alert('复制成功: ' + text);
+                    }, function(err) {
+                        alert('复制失败: ' + err);
+                    });
+                }
+            </script>
         </head>
         <body>
             <header>
@@ -127,8 +141,8 @@ def generate_index_html(root_dir):
                 html_content += f'''
                 <div class="gallery-item">
                     <img src="{https_url}" alt="{os.path.basename(file)}">
-                    <a href="{https_url}" target="_blank">HTTPS 访问地址</a>
-                    <a href="{cdn_url_complete}" target="_blank">jsdelivr CDN 加速地址</a>
+                    <a onclick="copyToClipboard('{https_url}')">HTTPS 访问地址</a>
+                    <a onclick="copyToClipboard('{cdn_url_complete}')">jsdelivr CDN 加速地址</a>
                 </div>
                 '''
 
