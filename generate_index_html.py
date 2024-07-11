@@ -20,38 +20,65 @@ def generate_index_html(root_dir):
             <style>
                 body {
                     font-family: Arial, sans-serif;
-                    margin: 20px;
+                    margin: 0;
+                    padding: 0;
                     background-color: #f0f0f0;
                 }
-                h1 {
+                header {
+                    background-color: #333;
+                    color: white;
+                    padding: 10px 0;
                     text-align: center;
                 }
-                table {
-                    width: 100%;
-                    border-collapse: collapse;
+                header h1 {
+                    margin: 0;
                 }
-                th, td {
-                    border: 1px solid #ddd;
-                    padding: 8px;
+                .container {
+                    margin: 20px auto;
+                    padding: 20px;
+                    max-width: 1000px;
+                    background-color: white;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
                 }
-                th {
-                    background-color: #f2f2f2;
-                    text-align: left;
+                .gallery {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 20px;
+                    justify-content: center;
                 }
-                img {
-                    max-width: 100px;
+                .gallery-item {
+                    flex: 1 1 200px;
+                    max-width: 200px;
+                    text-align: center;
+                }
+                .gallery-item img {
+                    max-width: 100%;
                     height: auto;
+                }
+                .gallery-item a {
+                    display: block;
+                    margin-top: 10px;
+                    color: #007bff;
+                    text-decoration: none;
+                    word-wrap: break-word;
+                }
+                footer {
+                    text-align: center;
+                    padding: 20px 0;
+                    background-color: #333;
+                    color: white;
+                    position: fixed;
+                    width: 100%;
+                    bottom: 0;
                 }
             </style>
         </head>
         <body>
-            <h1>一休github简易图床系统</h1>
-            <table>
-                <tr>
-                    <th>缩略图</th>
-                    <th>HTTPS 访问地址</th>
-                    <th>jsdelivr CDN 加速地址</th>
-                </tr>
+            <header>
+                <h1>一休github简易图床系统</h1>
+            </header>
+            <div class="container">
+                <div class="gallery">
         '''
 
         for file in files:
@@ -59,15 +86,19 @@ def generate_index_html(root_dir):
             https_url = base_url + file_path
             cdn_url_complete = cdn_url + file_path
             html_content += f'''
-            <tr>
-                <td><img src="{https_url}" alt="{os.path.basename(file)}"></td>
-                <td><a href="{https_url}" target="_blank">{https_url}</a></td>
-                <td><a href="{cdn_url_complete}" target="_blank">{cdn_url_complete}</a></td>
-            </tr>
+            <div class="gallery-item">
+                <img src="{https_url}" alt="{os.path.basename(file)}">
+                <a href="{https_url}" target="_blank">HTTPS 访问地址</a>
+                <a href="{cdn_url_complete}" target="_blank">jsdelivr CDN 加速地址</a>
+            </div>
             '''
 
         html_content += '''
-            </table>
+                </div>
+            </div>
+            <footer>
+                &copy; 2024 一休github简易图床系统
+            </footer>
         </body>
         </html>
         '''

@@ -8,238 +8,269 @@
             <style>
                 body {
                     font-family: Arial, sans-serif;
-                    margin: 20px;
+                    margin: 0;
+                    padding: 0;
                     background-color: #f0f0f0;
                 }
-                h1 {
+                header {
+                    background-color: #333;
+                    color: white;
+                    padding: 10px 0;
                     text-align: center;
                 }
-                table {
-                    width: 100%;
-                    border-collapse: collapse;
+                header h1 {
+                    margin: 0;
                 }
-                th, td {
-                    border: 1px solid #ddd;
-                    padding: 8px;
+                .container {
+                    margin: 20px auto;
+                    padding: 20px;
+                    max-width: 1000px;
+                    background-color: white;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
                 }
-                th {
-                    background-color: #f2f2f2;
-                    text-align: left;
+                .gallery {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 20px;
+                    justify-content: center;
                 }
-                img {
-                    max-width: 100px;
+                .gallery-item {
+                    flex: 1 1 200px;
+                    max-width: 200px;
+                    text-align: center;
+                }
+                .gallery-item img {
+                    max-width: 100%;
                     height: auto;
+                }
+                .gallery-item a {
+                    display: block;
+                    margin-top: 10px;
+                    color: #007bff;
+                    text-decoration: none;
+                    word-wrap: break-word;
+                }
+                footer {
+                    text-align: center;
+                    padding: 20px 0;
+                    background-color: #333;
+                    color: white;
+                    position: fixed;
+                    width: 100%;
+                    bottom: 0;
                 }
             </style>
         </head>
         <body>
-            <h1>一休github简易图床系统</h1>
-            <table>
-                <tr>
-                    <th>缩略图</th>
-                    <th>HTTPS 访问地址</th>
-                    <th>jsdelivr CDN 加速地址</th>
-                </tr>
+            <header>
+                <h1>一休github简易图床系统</h1>
+            </header>
+            <div class="container">
+                <div class="gallery">
         
-            <tr>
-                <td><img src="https://github.com/yixiu001/Figurebed/raw/main/youtube/US.KG注册.png" alt="US.KG注册.png"></td>
-                <td><a href="https://github.com/yixiu001/Figurebed/raw/main/youtube/US.KG注册.png" target="_blank">https://github.com/yixiu001/Figurebed/raw/main/youtube/US.KG注册.png</a></td>
-                <td><a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/youtube/US.KG注册.png" target="_blank">https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/youtube/US.KG注册.png</a></td>
-            </tr>
+            <div class="gallery-item">
+                <img src="https://github.com/yixiu001/Figurebed/raw/main/youtube/US.KG注册.png" alt="US.KG注册.png">
+                <a href="https://github.com/yixiu001/Figurebed/raw/main/youtube/US.KG注册.png" target="_blank">HTTPS 访问地址</a>
+                <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/youtube/US.KG注册.png" target="_blank">jsdelivr CDN 加速地址</a>
+            </div>
             
-            <tr>
-                <td><img src="https://github.com/yixiu001/Figurebed/raw/main/youtube/美区AppleID.webp" alt="美区AppleID.webp"></td>
-                <td><a href="https://github.com/yixiu001/Figurebed/raw/main/youtube/美区AppleID.webp" target="_blank">https://github.com/yixiu001/Figurebed/raw/main/youtube/美区AppleID.webp</a></td>
-                <td><a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/youtube/美区AppleID.webp" target="_blank">https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/youtube/美区AppleID.webp</a></td>
-            </tr>
+            <div class="gallery-item">
+                <img src="https://github.com/yixiu001/Figurebed/raw/main/youtube/美区AppleID.webp" alt="美区AppleID.webp">
+                <a href="https://github.com/yixiu001/Figurebed/raw/main/youtube/美区AppleID.webp" target="_blank">HTTPS 访问地址</a>
+                <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/youtube/美区AppleID.webp" target="_blank">jsdelivr CDN 加速地址</a>
+            </div>
             
-            <tr>
-                <td><img src="https://github.com/yixiu001/Figurebed/raw/main/youtube/ClouDNS注册.webp" alt="ClouDNS注册.webp"></td>
-                <td><a href="https://github.com/yixiu001/Figurebed/raw/main/youtube/ClouDNS注册.webp" target="_blank">https://github.com/yixiu001/Figurebed/raw/main/youtube/ClouDNS注册.webp</a></td>
-                <td><a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/youtube/ClouDNS注册.webp" target="_blank">https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/youtube/ClouDNS注册.webp</a></td>
-            </tr>
+            <div class="gallery-item">
+                <img src="https://github.com/yixiu001/Figurebed/raw/main/youtube/ClouDNS注册.webp" alt="ClouDNS注册.webp">
+                <a href="https://github.com/yixiu001/Figurebed/raw/main/youtube/ClouDNS注册.webp" target="_blank">HTTPS 访问地址</a>
+                <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/youtube/ClouDNS注册.webp" target="_blank">jsdelivr CDN 加速地址</a>
+            </div>
             
-            <tr>
-                <td><img src="https://github.com/yixiu001/Figurebed/raw/main/blog/svg/一休-下班啦.svg" alt="一休-下班啦.svg"></td>
-                <td><a href="https://github.com/yixiu001/Figurebed/raw/main/blog/svg/一休-下班啦.svg" target="_blank">https://github.com/yixiu001/Figurebed/raw/main/blog/svg/一休-下班啦.svg</a></td>
-                <td><a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/svg/一休-下班啦.svg" target="_blank">https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/svg/一休-下班啦.svg</a></td>
-            </tr>
+            <div class="gallery-item">
+                <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/svg/一休-下班啦.svg" alt="一休-下班啦.svg">
+                <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/svg/一休-下班啦.svg" target="_blank">HTTPS 访问地址</a>
+                <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/svg/一休-下班啦.svg" target="_blank">jsdelivr CDN 加速地址</a>
+            </div>
             
-            <tr>
-                <td><img src="https://github.com/yixiu001/Figurebed/raw/main/blog/svg/INTP-A.svg" alt="INTP-A.svg"></td>
-                <td><a href="https://github.com/yixiu001/Figurebed/raw/main/blog/svg/INTP-A.svg" target="_blank">https://github.com/yixiu001/Figurebed/raw/main/blog/svg/INTP-A.svg</a></td>
-                <td><a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/svg/INTP-A.svg" target="_blank">https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/svg/INTP-A.svg</a></td>
-            </tr>
+            <div class="gallery-item">
+                <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/svg/INTP-A.svg" alt="INTP-A.svg">
+                <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/svg/INTP-A.svg" target="_blank">HTTPS 访问地址</a>
+                <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/svg/INTP-A.svg" target="_blank">jsdelivr CDN 加速地址</a>
+            </div>
             
-            <tr>
-                <td><img src="https://github.com/yixiu001/Figurebed/raw/main/blog/svg/一休-上班摸鱼中.svg" alt="一休-上班摸鱼中.svg"></td>
-                <td><a href="https://github.com/yixiu001/Figurebed/raw/main/blog/svg/一休-上班摸鱼中.svg" target="_blank">https://github.com/yixiu001/Figurebed/raw/main/blog/svg/一休-上班摸鱼中.svg</a></td>
-                <td><a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/svg/一休-上班摸鱼中.svg" target="_blank">https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/svg/一休-上班摸鱼中.svg</a></td>
-            </tr>
+            <div class="gallery-item">
+                <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/svg/一休-上班摸鱼中.svg" alt="一休-上班摸鱼中.svg">
+                <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/svg/一休-上班摸鱼中.svg" target="_blank">HTTPS 访问地址</a>
+                <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/svg/一休-上班摸鱼中.svg" target="_blank">jsdelivr CDN 加速地址</a>
+            </div>
             
-            <tr>
-                <td><img src="https://github.com/yixiu001/Figurebed/raw/main/blog/images/error_404.gif" alt="error_404.gif"></td>
-                <td><a href="https://github.com/yixiu001/Figurebed/raw/main/blog/images/error_404.gif" target="_blank">https://github.com/yixiu001/Figurebed/raw/main/blog/images/error_404.gif</a></td>
-                <td><a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/error_404.gif" target="_blank">https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/error_404.gif</a></td>
-            </tr>
+            <div class="gallery-item">
+                <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/images/error_404.gif" alt="error_404.gif">
+                <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/images/error_404.gif" target="_blank">HTTPS 访问地址</a>
+                <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/error_404.gif" target="_blank">jsdelivr CDN 加速地址</a>
+            </div>
             
-            <tr>
-                <td><img src="https://github.com/yixiu001/Figurebed/raw/main/blog/images/地球.jpg" alt="地球.jpg"></td>
-                <td><a href="https://github.com/yixiu001/Figurebed/raw/main/blog/images/地球.jpg" target="_blank">https://github.com/yixiu001/Figurebed/raw/main/blog/images/地球.jpg</a></td>
-                <td><a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/地球.jpg" target="_blank">https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/地球.jpg</a></td>
-            </tr>
+            <div class="gallery-item">
+                <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/images/地球.jpg" alt="地球.jpg">
+                <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/images/地球.jpg" target="_blank">HTTPS 访问地址</a>
+                <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/地球.jpg" target="_blank">jsdelivr CDN 加速地址</a>
+            </div>
             
-            <tr>
-                <td><img src="https://github.com/yixiu001/Figurebed/raw/main/blog/images/loading.gif" alt="loading.gif"></td>
-                <td><a href="https://github.com/yixiu001/Figurebed/raw/main/blog/images/loading.gif" target="_blank">https://github.com/yixiu001/Figurebed/raw/main/blog/images/loading.gif</a></td>
-                <td><a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/loading.gif" target="_blank">https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/loading.gif</a></td>
-            </tr>
+            <div class="gallery-item">
+                <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/images/loading.gif" alt="loading.gif">
+                <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/images/loading.gif" target="_blank">HTTPS 访问地址</a>
+                <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/loading.gif" target="_blank">jsdelivr CDN 加速地址</a>
+            </div>
             
-            <tr>
-                <td><img src="https://github.com/yixiu001/Figurebed/raw/main/blog/images/404.gif" alt="404.gif"></td>
-                <td><a href="https://github.com/yixiu001/Figurebed/raw/main/blog/images/404.gif" target="_blank">https://github.com/yixiu001/Figurebed/raw/main/blog/images/404.gif</a></td>
-                <td><a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/404.gif" target="_blank">https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/404.gif</a></td>
-            </tr>
+            <div class="gallery-item">
+                <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/images/404.gif" alt="404.gif">
+                <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/images/404.gif" target="_blank">HTTPS 访问地址</a>
+                <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/404.gif" target="_blank">jsdelivr CDN 加速地址</a>
+            </div>
             
-            <tr>
-                <td><img src="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Git.webp" alt="Git.webp"></td>
-                <td><a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Git.webp" target="_blank">https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Git.webp</a></td>
-                <td><a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Git.webp" target="_blank">https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Git.webp</a></td>
-            </tr>
+            <div class="gallery-item">
+                <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Git.webp" alt="Git.webp">
+                <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Git.webp" target="_blank">HTTPS 访问地址</a>
+                <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Git.webp" target="_blank">jsdelivr CDN 加速地址</a>
+            </div>
             
-            <tr>
-                <td><img src="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Docker.png" alt="Docker.png"></td>
-                <td><a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Docker.png" target="_blank">https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Docker.png</a></td>
-                <td><a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Docker.png" target="_blank">https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Docker.png</a></td>
-            </tr>
+            <div class="gallery-item">
+                <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Docker.png" alt="Docker.png">
+                <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Docker.png" target="_blank">HTTPS 访问地址</a>
+                <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Docker.png" target="_blank">jsdelivr CDN 加速地址</a>
+            </div>
             
-            <tr>
-                <td><img src="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Python.png" alt="Python.png"></td>
-                <td><a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Python.png" target="_blank">https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Python.png</a></td>
-                <td><a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Python.png" target="_blank">https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Python.png</a></td>
-            </tr>
+            <div class="gallery-item">
+                <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Python.png" alt="Python.png">
+                <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Python.png" target="_blank">HTTPS 访问地址</a>
+                <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Python.png" target="_blank">jsdelivr CDN 加速地址</a>
+            </div>
             
-            <tr>
-                <td><img src="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Flutter.png" alt="Flutter.png"></td>
-                <td><a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Flutter.png" target="_blank">https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Flutter.png</a></td>
-                <td><a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Flutter.png" target="_blank">https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Flutter.png</a></td>
-            </tr>
+            <div class="gallery-item">
+                <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Flutter.png" alt="Flutter.png">
+                <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Flutter.png" target="_blank">HTTPS 访问地址</a>
+                <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Flutter.png" target="_blank">jsdelivr CDN 加速地址</a>
+            </div>
             
-            <tr>
-                <td><img src="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Pinia.svg" alt="Pinia.svg"></td>
-                <td><a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Pinia.svg" target="_blank">https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Pinia.svg</a></td>
-                <td><a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Pinia.svg" target="_blank">https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Pinia.svg</a></td>
-            </tr>
+            <div class="gallery-item">
+                <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Pinia.svg" alt="Pinia.svg">
+                <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Pinia.svg" target="_blank">HTTPS 访问地址</a>
+                <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Pinia.svg" target="_blank">jsdelivr CDN 加速地址</a>
+            </div>
             
-            <tr>
-                <td><img src="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Java.jpg" alt="Java.jpg"></td>
-                <td><a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Java.jpg" target="_blank">https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Java.jpg</a></td>
-                <td><a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Java.jpg" target="_blank">https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Java.jpg</a></td>
-            </tr>
+            <div class="gallery-item">
+                <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Java.jpg" alt="Java.jpg">
+                <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Java.jpg" target="_blank">HTTPS 访问地址</a>
+                <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Java.jpg" target="_blank">jsdelivr CDN 加速地址</a>
+            </div>
             
-            <tr>
-                <td><img src="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Vue.png" alt="Vue.png"></td>
-                <td><a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Vue.png" target="_blank">https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Vue.png</a></td>
-                <td><a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Vue.png" target="_blank">https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Vue.png</a></td>
-            </tr>
+            <div class="gallery-item">
+                <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Vue.png" alt="Vue.png">
+                <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Vue.png" target="_blank">HTTPS 访问地址</a>
+                <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Vue.png" target="_blank">jsdelivr CDN 加速地址</a>
+            </div>
             
-            <tr>
-                <td><img src="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/JS.png" alt="JS.png"></td>
-                <td><a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/JS.png" target="_blank">https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/JS.png</a></td>
-                <td><a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/JS.png" target="_blank">https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/JS.png</a></td>
-            </tr>
+            <div class="gallery-item">
+                <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/JS.png" alt="JS.png">
+                <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/JS.png" target="_blank">HTTPS 访问地址</a>
+                <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/JS.png" target="_blank">jsdelivr CDN 加速地址</a>
+            </div>
             
-            <tr>
-                <td><img src="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Webpack.png" alt="Webpack.png"></td>
-                <td><a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Webpack.png" target="_blank">https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Webpack.png</a></td>
-                <td><a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Webpack.png" target="_blank">https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Webpack.png</a></td>
-            </tr>
+            <div class="gallery-item">
+                <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Webpack.png" alt="Webpack.png">
+                <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Webpack.png" target="_blank">HTTPS 访问地址</a>
+                <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Webpack.png" target="_blank">jsdelivr CDN 加速地址</a>
+            </div>
             
-            <tr>
-                <td><img src="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Vite.svg" alt="Vite.svg"></td>
-                <td><a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Vite.svg" target="_blank">https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Vite.svg</a></td>
-                <td><a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Vite.svg" target="_blank">https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Vite.svg</a></td>
-            </tr>
+            <div class="gallery-item">
+                <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Vite.svg" alt="Vite.svg">
+                <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Vite.svg" target="_blank">HTTPS 访问地址</a>
+                <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Vite.svg" target="_blank">jsdelivr CDN 加速地址</a>
+            </div>
             
-            <tr>
-                <td><img src="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/HTML.png" alt="HTML.png"></td>
-                <td><a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/HTML.png" target="_blank">https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/HTML.png</a></td>
-                <td><a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/HTML.png" target="_blank">https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/HTML.png</a></td>
-            </tr>
+            <div class="gallery-item">
+                <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/HTML.png" alt="HTML.png">
+                <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/HTML.png" target="_blank">HTTPS 访问地址</a>
+                <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/HTML.png" target="_blank">jsdelivr CDN 加速地址</a>
+            </div>
             
-            <tr>
-                <td><img src="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/CSS3.png" alt="CSS3.png"></td>
-                <td><a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/CSS3.png" target="_blank">https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/CSS3.png</a></td>
-                <td><a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/CSS3.png" target="_blank">https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/CSS3.png</a></td>
-            </tr>
+            <div class="gallery-item">
+                <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/CSS3.png" alt="CSS3.png">
+                <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/CSS3.png" target="_blank">HTTPS 访问地址</a>
+                <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/CSS3.png" target="_blank">jsdelivr CDN 加速地址</a>
+            </div>
             
-            <tr>
-                <td><img src="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Photoshop.png" alt="Photoshop.png"></td>
-                <td><a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Photoshop.png" target="_blank">https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Photoshop.png</a></td>
-                <td><a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Photoshop.png" target="_blank">https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Photoshop.png</a></td>
-            </tr>
+            <div class="gallery-item">
+                <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Photoshop.png" alt="Photoshop.png">
+                <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Photoshop.png" target="_blank">HTTPS 访问地址</a>
+                <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Photoshop.png" target="_blank">jsdelivr CDN 加速地址</a>
+            </div>
             
-            <tr>
-                <td><img src="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Apifox.png" alt="Apifox.png"></td>
-                <td><a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Apifox.png" target="_blank">https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Apifox.png</a></td>
-                <td><a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Apifox.png" target="_blank">https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Apifox.png</a></td>
-            </tr>
+            <div class="gallery-item">
+                <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Apifox.png" alt="Apifox.png">
+                <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Apifox.png" target="_blank">HTTPS 访问地址</a>
+                <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Apifox.png" target="_blank">jsdelivr CDN 加速地址</a>
+            </div>
             
-            <tr>
-                <td><img src="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Node.svg" alt="Node.svg"></td>
-                <td><a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Node.svg" target="_blank">https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Node.svg</a></td>
-                <td><a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Node.svg" target="_blank">https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Node.svg</a></td>
-            </tr>
+            <div class="gallery-item">
+                <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Node.svg" alt="Node.svg">
+                <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Node.svg" target="_blank">HTTPS 访问地址</a>
+                <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Node.svg" target="_blank">jsdelivr CDN 加速地址</a>
+            </div>
             
-            <tr>
-                <td><img src="https://github.com/yixiu001/Figurebed/raw/main/blog/about/favicon.ico" alt="favicon.ico"></td>
-                <td><a href="https://github.com/yixiu001/Figurebed/raw/main/blog/about/favicon.ico" target="_blank">https://github.com/yixiu001/Figurebed/raw/main/blog/about/favicon.ico</a></td>
-                <td><a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/about/favicon.ico" target="_blank">https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/about/favicon.ico</a></td>
-            </tr>
+            <div class="gallery-item">
+                <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/about/favicon.ico" alt="favicon.ico">
+                <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/about/favicon.ico" target="_blank">HTTPS 访问地址</a>
+                <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/about/favicon.ico" target="_blank">jsdelivr CDN 加速地址</a>
+            </div>
             
-            <tr>
-                <td><img src="https://github.com/yixiu001/Figurebed/raw/main/blog/about/logo.jpg" alt="logo.jpg"></td>
-                <td><a href="https://github.com/yixiu001/Figurebed/raw/main/blog/about/logo.jpg" target="_blank">https://github.com/yixiu001/Figurebed/raw/main/blog/about/logo.jpg</a></td>
-                <td><a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/about/logo.jpg" target="_blank">https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/about/logo.jpg</a></td>
-            </tr>
+            <div class="gallery-item">
+                <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/about/logo.jpg" alt="logo.jpg">
+                <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/about/logo.jpg" target="_blank">HTTPS 访问地址</a>
+                <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/about/logo.jpg" target="_blank">jsdelivr CDN 加速地址</a>
+            </div>
             
-            <tr>
-                <td><img src="https://github.com/yixiu001/Figurebed/raw/main/blog/about/alipay.png" alt="alipay.png"></td>
-                <td><a href="https://github.com/yixiu001/Figurebed/raw/main/blog/about/alipay.png" target="_blank">https://github.com/yixiu001/Figurebed/raw/main/blog/about/alipay.png</a></td>
-                <td><a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/about/alipay.png" target="_blank">https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/about/alipay.png</a></td>
-            </tr>
+            <div class="gallery-item">
+                <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/about/alipay.png" alt="alipay.png">
+                <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/about/alipay.png" target="_blank">HTTPS 访问地址</a>
+                <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/about/alipay.png" target="_blank">jsdelivr CDN 加速地址</a>
+            </div>
             
-            <tr>
-                <td><img src="https://github.com/yixiu001/Figurebed/raw/main/blog/about/wechatpay.png" alt="wechatpay.png"></td>
-                <td><a href="https://github.com/yixiu001/Figurebed/raw/main/blog/about/wechatpay.png" target="_blank">https://github.com/yixiu001/Figurebed/raw/main/blog/about/wechatpay.png</a></td>
-                <td><a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/about/wechatpay.png" target="_blank">https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/about/wechatpay.png</a></td>
-            </tr>
+            <div class="gallery-item">
+                <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/about/wechatpay.png" alt="wechatpay.png">
+                <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/about/wechatpay.png" target="_blank">HTTPS 访问地址</a>
+                <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/about/wechatpay.png" target="_blank">jsdelivr CDN 加速地址</a>
+            </div>
             
-            <tr>
-                <td><img src="https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg4.jpg" alt="bg4.jpg"></td>
-                <td><a href="https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg4.jpg" target="_blank">https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg4.jpg</a></td>
-                <td><a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg4.jpg" target="_blank">https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg4.jpg</a></td>
-            </tr>
+            <div class="gallery-item">
+                <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg4.jpg" alt="bg4.jpg">
+                <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg4.jpg" target="_blank">HTTPS 访问地址</a>
+                <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg4.jpg" target="_blank">jsdelivr CDN 加速地址</a>
+            </div>
             
-            <tr>
-                <td><img src="https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg1.jpg" alt="bg1.jpg"></td>
-                <td><a href="https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg1.jpg" target="_blank">https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg1.jpg</a></td>
-                <td><a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg1.jpg" target="_blank">https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg1.jpg</a></td>
-            </tr>
+            <div class="gallery-item">
+                <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg1.jpg" alt="bg1.jpg">
+                <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg1.jpg" target="_blank">HTTPS 访问地址</a>
+                <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg1.jpg" target="_blank">jsdelivr CDN 加速地址</a>
+            </div>
             
-            <tr>
-                <td><img src="https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg3.jpg" alt="bg3.jpg"></td>
-                <td><a href="https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg3.jpg" target="_blank">https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg3.jpg</a></td>
-                <td><a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg3.jpg" target="_blank">https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg3.jpg</a></td>
-            </tr>
+            <div class="gallery-item">
+                <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg3.jpg" alt="bg3.jpg">
+                <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg3.jpg" target="_blank">HTTPS 访问地址</a>
+                <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg3.jpg" target="_blank">jsdelivr CDN 加速地址</a>
+            </div>
             
-            <tr>
-                <td><img src="https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg2.jpg" alt="bg2.jpg"></td>
-                <td><a href="https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg2.jpg" target="_blank">https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg2.jpg</a></td>
-                <td><a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg2.jpg" target="_blank">https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg2.jpg</a></td>
-            </tr>
+            <div class="gallery-item">
+                <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg2.jpg" alt="bg2.jpg">
+                <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg2.jpg" target="_blank">HTTPS 访问地址</a>
+                <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg2.jpg" target="_blank">jsdelivr CDN 加速地址</a>
+            </div>
             
-            </table>
+                </div>
+            </div>
+            <footer>
+                &copy; 2024 一休github简易图床系统
+            </footer>
         </body>
         </html>
         
