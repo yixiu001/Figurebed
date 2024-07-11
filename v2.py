@@ -19,7 +19,7 @@ def generate_index_html(root_dir):
         if not root.startswith('./.git'):
             rel_dir = os.path.relpath(root, root_dir)
             for file in files:
-                if file.lower().endswith(('.png','.svg','ico','.webp', '.jpg', '.jpeg', '.gif', '.bmp', '.tiff')):
+                if file.lower().endswith(('.png', '.svg', 'ico', '.webp', '.jpg', '.jpeg', '.gif', '.bmp', '.tiff')):
                     if rel_dir not in image_files:
                         image_files[rel_dir] = []
                     image_files[rel_dir].append(os.path.join(root, file))
@@ -109,7 +109,7 @@ def generate_index_html(root_dir):
                     display: flex;
                     flex-wrap: wrap;
                     gap: 20px;
-                    justify-content: center;
+                    justify-content: flex-start;
                 }
                 .gallery-item {
                     position: relative;
@@ -165,6 +165,9 @@ def generate_index_html(root_dir):
                     width: 100%;
                     bottom: 0;
                 }
+                footer a {
+                    color: #66ccff;
+                }
             </style>
             <script>
                 function copyToClipboard(text) {
@@ -176,6 +179,22 @@ def generate_index_html(root_dir):
                 }
                 function toggleCategoryNav() {
                     document.getElementById('category-nav').classList.toggle('open');
+                }
+                window.addEventListener('click', function(event) {
+                    var categoryNav = document.getElementById('category-nav');
+                    if (!categoryNav.contains(event.target) && !document.getElementById('category-toggle').contains(event.target)) {
+                        categoryNav.classList.remove('open');
+                    }
+                });
+                function toggleMoreLinks(event) {
+                    var moreLinks = event.currentTarget.previousElementSibling;
+                    if (moreLinks.style.display === "block") {
+                        moreLinks.style.display = "none";
+                        event.currentTarget.innerText = "更多";
+                    } else {
+                        moreLinks.style.display = "block";
+                        event.currentTarget.innerText = "收起";
+                    }
                 }
             </script>
         </head>
@@ -190,7 +209,7 @@ def generate_index_html(root_dir):
         # 生成导航链接
         for category in image_files:
             html_content += f'<a href="#{category}" onclick="toggleCategoryNav()">{category}</a>'
-        html_content += '<a href="json/images.json" download>导出所有图片信息</a>'
+        html_content += '<a href="json/images.json" download style="color: yellow;">导出所有图片信息</a>'
 
         html_content += '''
             </nav>
@@ -199,11 +218,11 @@ def generate_index_html(root_dir):
 
         # 生成每个分类的图片展示
         for category, files in image_files.items():
-            html_content += f'<h2 id="{category}">{category} <a href="json/images_{category}.json" download>导出该分类图片信息</a></h2><div class="gallery">'
+            html_content += f'<h2 id="{category}">{category} <a href="json/images_{category}.json" download style="color: yellow;">导出该分类图片信息</a></h2><div class="gallery">'
 
             category_json_data = []
 
-            for file in files:
+            for i, file in enumerate(files):
                 file_path = os.path.relpath(file, root_dir)
                 https_url = base_url + file_path
                 cdn_url_complete = cdn_url + file_path
@@ -216,8 +235,11 @@ def generate_index_html(root_dir):
                 <div class="gallery-item">
                     <img src="{https_url}" alt="{os.path.basename(file)}">
                     <div class="link-overlay">
-                        <a href="{https_url}" target="_blank" onclick="copyToClipboard('{https_url}'); return false;">HTTPS 访问地址</a>
-                        <a href="{cdn_url_complete}" target="_blank" onclick="copyToClipboard('{cdn_url_complete}'); return false;">jsdelivr CDN 加速地址</a>
+                        <div class="more-links" style="display: none;">
+                            <a href="{https_url}" target="_blank" onclick="copyToClipboard('{https_url}'); return false;">HTTPS 访问地址</a>
+                            <a href="{cdn_url_complete}" target="_blank" onclick="copyToClipboard('{cdn_url_complete}'); return false;">jsdelivr CDN 加速地址</a>
+                        </div>
+                        <button onclick="toggleMoreLinks(event)">更多</button>
                     </div>
                 </div>
                 '''
@@ -232,7 +254,7 @@ def generate_index_html(root_dir):
         html_content += '''
             </div>
             <footer>
-                &copy; <a href="https://github.com/yixiu001/Figurebed" >2024 a一休github简易图床系统</a>
+                &copy; <a href="https://github.com/yixiu001/Figurebed" >2024 一休github简易图床系统</a>
             </footer>
         </body>
         </html>
