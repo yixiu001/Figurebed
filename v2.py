@@ -8,6 +8,10 @@ GITHUB_REPOSITORY = 'Figurebed'
 def generate_index_html(root_dir):
     base_url = f"https://github.com/{GITHUB_USERNAME}/{GITHUB_REPOSITORY}/raw/main/"
     cdn_url = f"https://cdn.jsdelivr.net/gh/{GITHUB_USERNAME}/{GITHUB_REPOSITORY}@main/"
+    json_dir = os.path.join(root_dir, 'json')
+
+    # 创建json目录
+    os.makedirs(json_dir, exist_ok=True)
 
     # 获取所有图片文件，并根据目录分类
     image_files = {}
@@ -34,7 +38,7 @@ def generate_index_html(root_dir):
                 "cdn_url": cdn_url_complete
             })
 
-    with open(os.path.join(root_dir, 'images.json'), 'w', encoding='utf-8') as json_file:
+    with open(os.path.join(json_dir, 'images.json'), 'w', encoding='utf-8') as json_file:
         json.dump(json_data, json_file, ensure_ascii=False, indent=4)
 
     # 定义生成 HTML 内容的函数
@@ -161,7 +165,7 @@ def generate_index_html(root_dir):
         # 生成导航链接
         for category in image_files:
             html_content += f'<a href="#{category}">{category}</a>'
-        html_content += '<a href="images.json" download>导出所有图片信息</a>'
+        html_content += '<a href="json/images.json" download>导出所有图片信息</a>'
 
         html_content += '''
             </nav>
@@ -170,7 +174,7 @@ def generate_index_html(root_dir):
 
         # 生成每个分类的图片展示
         for category, files in image_files.items():
-            html_content += f'<h2 id="{category}">{category} <a href="images_{category}.json" download>导出该分类图片信息</a></h2><div class="gallery">'
+            html_content += f'<h2 id="{category}">{category} <a href="json/images_{category}.json" download>导出该分类图片信息</a></h2><div class="gallery">'
 
             category_json_data = []
 
@@ -194,7 +198,7 @@ def generate_index_html(root_dir):
                 '''
 
             # 确保目录存在
-            category_json_file_path = os.path.join(root_dir, f'images_{category}.json')
+            category_json_file_path = os.path.join(json_dir, f'images_{category}.json')
             os.makedirs(os.path.dirname(category_json_file_path), exist_ok=True)
             with open(category_json_file_path, 'w', encoding='utf-8') as category_json_file:
                 json.dump(category_json_data, category_json_file, ensure_ascii=False, indent=4)
