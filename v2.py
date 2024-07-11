@@ -229,11 +229,10 @@ def generate_index_html(root_dir):
                 json.dump(category_json_data, category_json_file, ensure_ascii=False, indent=4)
 
             html_content += '</div>'
-
         html_content += '''
             </div>
             <footer>
-                &copy; 2024 一休github简易图床系统
+                &copy; <a href="https://github.com/yixiu001/Figurebed" >2024 a一休github简易图床系统</a>
             </footer>
         </body>
         </html>
