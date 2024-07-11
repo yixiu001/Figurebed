@@ -52,77 +52,85 @@ def generate_index_html(root_dir):
             <title>一休github简易图床系统</title>
             <style>
                 body {
-                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    font-family: Arial, sans-serif;
                     margin: 0;
                     padding: 0;
-                    background-color: #f5f5f5;
-                    color: #333;
+                    background-color: #f0f0f0;
                 }
-                .container {
-                    display: flex;
-                    flex-wrap: wrap;
-                    justify-content: space-between;
-                    max-width: 1200px;
-                    margin: 20px auto;
+                header {
+                    background-color: #333;
+                    color: white;
+                    padding: 10px 0;
+                    text-align: center;
+                }
+                header h1 {
+                    margin: 0;
+                }
+                #category-nav {
+                    position: fixed;
+                    left: 0;
+                    top: 0;
+                    width: 200px;
+                    height: 100%;
+                    background-color: #444;
+                    color: white;
                     padding: 20px;
-                    background-color: #fff;
-                    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+                    box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+                    overflow-y: auto;
+                    transition: transform 0.3s ease;
+                    transform: translateX(-100%);
                 }
-                .category-nav {
-                    flex: 0 0 250px;
-                    margin-right: 20px;
-                    padding: 20px;
-                    background-color: #f8f9fa;
-                    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+                #category-nav.open {
+                    transform: translateX(0);
                 }
-                .category-nav h2 {
-                    font-size: 1.5rem;
+                #category-nav a {
+                    display: block;
+                    color: white;
+                    text-decoration: none;
                     margin-bottom: 10px;
+                }
+                #category-nav a:hover {
+                    text-decoration: underline;
+                }
+                #category-toggle {
+                    position: fixed;
+                    left: 0;
+                    top: 0;
+                    background-color: #444;
+                    color: white;
+                    padding: 10px;
                     cursor: pointer;
                 }
-                .category-list {
-                    list-style-type: none;
-                    padding: 0;
-                }
-                .category-list li {
-                    margin-bottom: 10px;
-                }
-                .category-list a {
-                    text-decoration: none;
-                    color: #333;
-                    display: block;
-                    padding: 8px 16px;
-                    border-radius: 4px;
-                    transition: background-color 0.3s ease;
-                }
-                .category-list a:hover {
-                    background-color: #e9ecef;
+                .container {
+                    margin-left: 220px;
+                    padding: 20px;
                 }
                 .gallery {
-                    flex: 1;
                     display: flex;
                     flex-wrap: wrap;
                     gap: 20px;
-                    justify-content: flex-start;
+                    justify-content: center;
                 }
                 .gallery-item {
                     position: relative;
-                    width: calc(33.33% - 20px);
-                    margin-bottom: 20px;
+                    width: 200px;
+                    height: 200px;
+                    text-align: center;
+                    overflow: hidden;
+                    border: 1px solid #ddd;
                     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
                     background-color: #fff;
-                    overflow: hidden;
                 }
                 .gallery-item img {
                     width: 100%;
-                    height: auto;
-                    display: block;
-                    transition: filter 0.3s ease;
+                    height: 100%;
+                    object-fit: cover;
+                    transition: all 0.3s ease;
                 }
                 .gallery-item:hover img {
                     filter: blur(4px);
                 }
-                .link-overlay {
+                .gallery-item .link-overlay {
                     position: absolute;
                     top: 0;
                     left: 0;
@@ -153,7 +161,9 @@ def generate_index_html(root_dir):
                     padding: 20px 0;
                     background-color: #333;
                     color: white;
-                    margin-top: 20px;
+                    position: fixed;
+                    width: 100%;
+                    bottom: 0;
                 }
             </style>
             <script>
@@ -164,38 +174,32 @@ def generate_index_html(root_dir):
                         alert('复制失败: ' + err);
                     });
                 }
-                function toggleCategory(categoryId) {
-                    const categoryNav = document.getElementById(categoryId);
-                    categoryNav.classList.toggle('open');
+                function toggleCategoryNav() {
+                    document.getElementById('category-nav').classList.toggle('open');
                 }
             </script>
         </head>
         <body>
             <header>
-                <div class="container">
-                    <h1>一休github简易图床系统</h1>
-                </div>
+                <h1>一休github简易图床系统</h1>
             </header>
-            <div class="container">
-                <nav class="category-nav">
-                    <h2>分类</h2>
-                    <ul class="category-list">
+            <div id="category-toggle" onclick="toggleCategoryNav()">分类</div>
+            <nav id="category-nav">
         '''
 
         # 生成导航链接
         for category in image_files:
-            html_content += f'<li><a href="javascript:void(0);" onclick="toggleCategory(\'{category}\')">{category}</a></li>'
+            html_content += f'<a href="#{category}" onclick="toggleCategoryNav()">{category}</a>'
+        html_content += '<a href="json/images.json" download>导出所有图片信息</a>'
 
         html_content += '''
-                    </ul>
-                    <a href="json/images.json" download>导出所有图片信息</a>
-                </nav>
-                <div class="gallery">
+            </nav>
+            <div class="container">
         '''
 
         # 生成每个分类的图片展示
         for category, files in image_files.items():
-            html_content += f'<div id="{category}" class="gallery"><h2>{category} <a href="json/images_{category}.json" download>导出该分类图片信息</a></h2>'
+            html_content += f'<h2 id="{category}">{category} <a href="json/images_{category}.json" download>导出该分类图片信息</a></h2><div class="gallery">'
 
             category_json_data = []
 
@@ -227,7 +231,6 @@ def generate_index_html(root_dir):
             html_content += '</div>'
 
         html_content += '''
-                </div>
             </div>
             <footer>
                 &copy; 2024 一休github简易图床系统

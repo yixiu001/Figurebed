@@ -7,77 +7,85 @@
             <title>一休github简易图床系统</title>
             <style>
                 body {
-                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    font-family: Arial, sans-serif;
                     margin: 0;
                     padding: 0;
-                    background-color: #f5f5f5;
-                    color: #333;
+                    background-color: #f0f0f0;
                 }
-                .container {
-                    display: flex;
-                    flex-wrap: wrap;
-                    justify-content: space-between;
-                    max-width: 1200px;
-                    margin: 20px auto;
+                header {
+                    background-color: #333;
+                    color: white;
+                    padding: 10px 0;
+                    text-align: center;
+                }
+                header h1 {
+                    margin: 0;
+                }
+                #category-nav {
+                    position: fixed;
+                    left: 0;
+                    top: 0;
+                    width: 200px;
+                    height: 100%;
+                    background-color: #444;
+                    color: white;
                     padding: 20px;
-                    background-color: #fff;
-                    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+                    box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+                    overflow-y: auto;
+                    transition: transform 0.3s ease;
+                    transform: translateX(-100%);
                 }
-                .category-nav {
-                    flex: 0 0 250px;
-                    margin-right: 20px;
-                    padding: 20px;
-                    background-color: #f8f9fa;
-                    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+                #category-nav.open {
+                    transform: translateX(0);
                 }
-                .category-nav h2 {
-                    font-size: 1.5rem;
+                #category-nav a {
+                    display: block;
+                    color: white;
+                    text-decoration: none;
                     margin-bottom: 10px;
+                }
+                #category-nav a:hover {
+                    text-decoration: underline;
+                }
+                #category-toggle {
+                    position: fixed;
+                    left: 0;
+                    top: 0;
+                    background-color: #444;
+                    color: white;
+                    padding: 10px;
                     cursor: pointer;
                 }
-                .category-list {
-                    list-style-type: none;
-                    padding: 0;
-                }
-                .category-list li {
-                    margin-bottom: 10px;
-                }
-                .category-list a {
-                    text-decoration: none;
-                    color: #333;
-                    display: block;
-                    padding: 8px 16px;
-                    border-radius: 4px;
-                    transition: background-color 0.3s ease;
-                }
-                .category-list a:hover {
-                    background-color: #e9ecef;
+                .container {
+                    margin-left: 220px;
+                    padding: 20px;
                 }
                 .gallery {
-                    flex: 1;
                     display: flex;
                     flex-wrap: wrap;
                     gap: 20px;
-                    justify-content: flex-start;
+                    justify-content: center;
                 }
                 .gallery-item {
                     position: relative;
-                    width: calc(33.33% - 20px);
-                    margin-bottom: 20px;
+                    width: 200px;
+                    height: 200px;
+                    text-align: center;
+                    overflow: hidden;
+                    border: 1px solid #ddd;
                     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
                     background-color: #fff;
-                    overflow: hidden;
                 }
                 .gallery-item img {
                     width: 100%;
-                    height: auto;
-                    display: block;
-                    transition: filter 0.3s ease;
+                    height: 100%;
+                    object-fit: cover;
+                    transition: all 0.3s ease;
                 }
                 .gallery-item:hover img {
                     filter: blur(4px);
                 }
-                .link-overlay {
+                .gallery-item .link-overlay {
                     position: absolute;
                     top: 0;
                     left: 0;
@@ -108,7 +116,9 @@
                     padding: 20px 0;
                     background-color: #333;
                     color: white;
-                    margin-top: 20px;
+                    position: fixed;
+                    width: 100%;
+                    bottom: 0;
                 }
             </style>
             <script>
@@ -119,28 +129,21 @@
                         alert('复制失败: ' + err);
                     });
                 }
-                function toggleCategory(categoryId) {
-                    const categoryNav = document.getElementById(categoryId);
-                    categoryNav.classList.toggle('open');
+                function toggleCategoryNav() {
+                    document.getElementById('category-nav').classList.toggle('open');
                 }
             </script>
         </head>
         <body>
             <header>
-                <div class="container">
-                    <h1>一休github简易图床系统</h1>
-                </div>
+                <h1>一休github简易图床系统</h1>
             </header>
+            <div id="category-toggle" onclick="toggleCategoryNav()">分类</div>
+            <nav id="category-nav">
+        <a href="#youtube" onclick="toggleCategoryNav()">youtube</a><a href="#blog/svg" onclick="toggleCategoryNav()">blog/svg</a><a href="#blog/images" onclick="toggleCategoryNav()">blog/images</a><a href="#blog/creativity" onclick="toggleCategoryNav()">blog/creativity</a><a href="#blog/about" onclick="toggleCategoryNav()">blog/about</a><a href="#blog/bg" onclick="toggleCategoryNav()">blog/bg</a><a href="json/images.json" download>导出所有图片信息</a>
+            </nav>
             <div class="container">
-                <nav class="category-nav">
-                    <h2>分类</h2>
-                    <ul class="category-list">
-        <li><a href="javascript:void(0);" onclick="toggleCategory('youtube')">youtube</a></li><li><a href="javascript:void(0);" onclick="toggleCategory('blog/svg')">blog/svg</a></li><li><a href="javascript:void(0);" onclick="toggleCategory('blog/images')">blog/images</a></li><li><a href="javascript:void(0);" onclick="toggleCategory('blog/creativity')">blog/creativity</a></li><li><a href="javascript:void(0);" onclick="toggleCategory('blog/about')">blog/about</a></li><li><a href="javascript:void(0);" onclick="toggleCategory('blog/bg')">blog/bg</a></li>
-                    </ul>
-                    <a href="json/images.json" download>导出所有图片信息</a>
-                </nav>
-                <div class="gallery">
-        <div id="youtube" class="gallery"><h2>youtube <a href="json/images_youtube.json" download>导出该分类图片信息</a></h2>
+        <h2 id="youtube">youtube <a href="json/images_youtube.json" download>导出该分类图片信息</a></h2><div class="gallery">
                 <div class="gallery-item">
                     <img src="https://github.com/yixiu001/Figurebed/raw/main/youtube/US.KG注册.png" alt="US.KG注册.png">
                     <div class="link-overlay">
@@ -164,7 +167,7 @@
                         <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/youtube/ClouDNS注册.webp" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/youtube/ClouDNS注册.webp'); return false;">jsdelivr CDN 加速地址</a>
                     </div>
                 </div>
-                </div><div id="blog/svg" class="gallery"><h2>blog/svg <a href="json/images_blog/svg.json" download>导出该分类图片信息</a></h2>
+                </div><h2 id="blog/svg">blog/svg <a href="json/images_blog/svg.json" download>导出该分类图片信息</a></h2><div class="gallery">
                 <div class="gallery-item">
                     <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/svg/一休-下班啦.svg" alt="一休-下班啦.svg">
                     <div class="link-overlay">
@@ -188,7 +191,7 @@
                         <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/svg/一休-上班摸鱼中.svg" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/svg/一休-上班摸鱼中.svg'); return false;">jsdelivr CDN 加速地址</a>
                     </div>
                 </div>
-                </div><div id="blog/images" class="gallery"><h2>blog/images <a href="json/images_blog/images.json" download>导出该分类图片信息</a></h2>
+                </div><h2 id="blog/images">blog/images <a href="json/images_blog/images.json" download>导出该分类图片信息</a></h2><div class="gallery">
                 <div class="gallery-item">
                     <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/images/error_404.gif" alt="error_404.gif">
                     <div class="link-overlay">
@@ -220,7 +223,7 @@
                         <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/404.gif" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/404.gif'); return false;">jsdelivr CDN 加速地址</a>
                     </div>
                 </div>
-                </div><div id="blog/creativity" class="gallery"><h2>blog/creativity <a href="json/images_blog/creativity.json" download>导出该分类图片信息</a></h2>
+                </div><h2 id="blog/creativity">blog/creativity <a href="json/images_blog/creativity.json" download>导出该分类图片信息</a></h2><div class="gallery">
                 <div class="gallery-item">
                     <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Git.webp" alt="Git.webp">
                     <div class="link-overlay">
@@ -340,7 +343,7 @@
                         <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Node.svg" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Node.svg'); return false;">jsdelivr CDN 加速地址</a>
                     </div>
                 </div>
-                </div><div id="blog/about" class="gallery"><h2>blog/about <a href="json/images_blog/about.json" download>导出该分类图片信息</a></h2>
+                </div><h2 id="blog/about">blog/about <a href="json/images_blog/about.json" download>导出该分类图片信息</a></h2><div class="gallery">
                 <div class="gallery-item">
                     <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/about/favicon.ico" alt="favicon.ico">
                     <div class="link-overlay">
@@ -372,7 +375,7 @@
                         <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/about/wechatpay.png" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/about/wechatpay.png'); return false;">jsdelivr CDN 加速地址</a>
                     </div>
                 </div>
-                </div><div id="blog/bg" class="gallery"><h2>blog/bg <a href="json/images_blog/bg.json" download>导出该分类图片信息</a></h2>
+                </div><h2 id="blog/bg">blog/bg <a href="json/images_blog/bg.json" download>导出该分类图片信息</a></h2><div class="gallery">
                 <div class="gallery-item">
                     <img src="https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg4.jpg" alt="bg4.jpg">
                     <div class="link-overlay">
@@ -403,7 +406,6 @@
                         <a href="https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg2.jpg" target="_blank" onclick="copyToClipboard('https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg2.jpg'); return false;">HTTPS 访问地址</a>
                         <a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg2.jpg" target="_blank" onclick="copyToClipboard('https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg2.jpg'); return false;">jsdelivr CDN 加速地址</a>
                     </div>
-                </div>
                 </div>
                 </div>
             </div>
