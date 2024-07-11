@@ -1,4 +1,5 @@
 import os
+import json
 
 # 在这里定义GitHub用户名和仓库名称
 GITHUB_USERNAME = 'yixiu001'
@@ -18,6 +19,23 @@ def generate_index_html(root_dir):
                     if rel_dir not in image_files:
                         image_files[rel_dir] = []
                     image_files[rel_dir].append(os.path.join(root, file))
+
+    # 生成JSON文件
+    json_data = {}
+    for category, files in image_files.items():
+        json_data[category] = []
+        for file in files:
+            file_path = os.path.relpath(file, root_dir)
+            https_url = base_url + file_path
+            cdn_url_complete = cdn_url + file_path
+            json_data[category].append({
+                "file": file_path,
+                "https_url": https_url,
+                "cdn_url": cdn_url_complete
+            })
+
+    with open(os.path.join(root_dir, 'images.json'), 'w', encoding='utf-8') as json_file:
+        json.dump(json_data, json_file, ensure_ascii=False, indent=4)
 
     # 定义生成 HTML 内容的函数
     def generate_html_content(image_files):
@@ -134,6 +152,7 @@ def generate_index_html(root_dir):
         # 生成导航链接
         for category in image_files:
             html_content += f'<a href="#{category}">{category}</a>'
+        html_content += '<a href="images.json" download>导出所有图片信息</a>'
 
         html_content += '''
             </nav>
@@ -142,12 +161,19 @@ def generate_index_html(root_dir):
 
         # 生成每个分类的图片展示
         for category, files in image_files.items():
-            html_content += f'<h2 id="{category}">{category}</h2><div class="gallery">'
+            html_content += f'<h2 id="{category}">{category} <a href="images_{category}.json" download>导出该分类图片信息</a></h2><div class="gallery">'
+
+            category_json_data = []
 
             for file in files:
                 file_path = os.path.relpath(file, root_dir)
                 https_url = base_url + file_path
                 cdn_url_complete = cdn_url + file_path
+                category_json_data.append({
+                    "file": file_path,
+                    "https_url": https_url,
+                    "cdn_url": cdn_url_complete
+                })
                 html_content += f'''
                 <div class="gallery-item">
                     <img src="{https_url}" alt="{os.path.basename(file)}">
@@ -157,6 +183,9 @@ def generate_index_html(root_dir):
                     </div>
                 </div>
                 '''
+
+            with open(os.path.join(root_dir, f'images_{category}.json'), 'w', encoding='utf-8') as category_json_file:
+                json.dump(category_json_data, category_json_file, ensure_ascii=False, indent=4)
 
             html_content += '</div>'
 

@@ -1,0 +1,179 @@
+{
+    "youtube": [
+        {
+            "file": "youtube/US.KG注册.png",
+            "https_url": "https://github.com/yixiu001/Figurebed/raw/main/youtube/US.KG注册.png",
+            "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/youtube/US.KG注册.png"
+        },
+        {
+            "file": "youtube/美区AppleID.webp",
+            "https_url": "https://github.com/yixiu001/Figurebed/raw/main/youtube/美区AppleID.webp",
+            "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/youtube/美区AppleID.webp"
+        },
+        {
+            "file": "youtube/ClouDNS注册.webp",
+            "https_url": "https://github.com/yixiu001/Figurebed/raw/main/youtube/ClouDNS注册.webp",
+            "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/youtube/ClouDNS注册.webp"
+        }
+    ],
+    "blog/svg": [
+        {
+            "file": "blog/svg/一休-下班啦.svg",
+            "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/svg/一休-下班啦.svg",
+            "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/svg/一休-下班啦.svg"
+        },
+        {
+            "file": "blog/svg/INTP-A.svg",
+            "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/svg/INTP-A.svg",
+            "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/svg/INTP-A.svg"
+        },
+        {
+            "file": "blog/svg/一休-上班摸鱼中.svg",
+            "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/svg/一休-上班摸鱼中.svg",
+            "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/svg/一休-上班摸鱼中.svg"
+        }
+    ],
+    "blog/images": [
+        {
+            "file": "blog/images/error_404.gif",
+            "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/images/error_404.gif",
+            "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/error_404.gif"
+        },
+        {
+            "file": "blog/images/地球.jpg",
+            "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/images/地球.jpg",
+            "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/地球.jpg"
+        },
+        {
+            "file": "blog/images/loading.gif",
+            "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/images/loading.gif",
+            "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/loading.gif"
+        },
+        {
+            "file": "blog/images/404.gif",
+            "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/images/404.gif",
+            "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/404.gif"
+        }
+    ],
+    "blog/creativity": [
+        {
+            "file": "blog/creativity/Git.webp",
+            "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Git.webp",
+            "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Git.webp"
+        },
+        {
+            "file": "blog/creativity/Docker.png",
+            "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Docker.png",
+            "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Docker.png"
+        },
+        {
+            "file": "blog/creativity/Python.png",
+            "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Python.png",
+            "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Python.png"
+        },
+        {
+            "file": "blog/creativity/Flutter.png",
+            "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Flutter.png",
+            "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Flutter.png"
+        },
+        {
+            "file": "blog/creativity/Pinia.svg",
+            "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Pinia.svg",
+            "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Pinia.svg"
+        },
+        {
+            "file": "blog/creativity/Java.jpg",
+            "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Java.jpg",
+            "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Java.jpg"
+        },
+        {
+            "file": "blog/creativity/Vue.png",
+            "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Vue.png",
+            "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Vue.png"
+        },
+        {
+            "file": "blog/creativity/JS.png",
+            "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/JS.png",
+            "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/JS.png"
+        },
+        {
+            "file": "blog/creativity/Webpack.png",
+            "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Webpack.png",
+            "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Webpack.png"
+        },
+        {
+            "file": "blog/creativity/Vite.svg",
+            "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Vite.svg",
+            "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Vite.svg"
+        },
+        {
+            "file": "blog/creativity/HTML.png",
+            "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/HTML.png",
+            "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/HTML.png"
+        },
+        {
+            "file": "blog/creativity/CSS3.png",
+            "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/CSS3.png",
+            "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/CSS3.png"
+        },
+        {
+            "file": "blog/creativity/Photoshop.png",
+            "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Photoshop.png",
+            "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Photoshop.png"
+        },
+        {
+            "file": "blog/creativity/Apifox.png",
+            "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Apifox.png",
+            "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Apifox.png"
+        },
+        {
+            "file": "blog/creativity/Node.svg",
+            "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/creativity/Node.svg",
+            "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/creativity/Node.svg"
+        }
+    ],
+    "blog/about": [
+        {
+            "file": "blog/about/favicon.ico",
+            "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/about/favicon.ico",
+            "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/about/favicon.ico"
+        },
+        {
+            "file": "blog/about/logo.jpg",
+            "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/about/logo.jpg",
+            "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/about/logo.jpg"
+        },
+        {
+            "file": "blog/about/alipay.png",
+            "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/about/alipay.png",
+            "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/about/alipay.png"
+        },
+        {
+            "file": "blog/about/wechatpay.png",
+            "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/about/wechatpay.png",
+            "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/about/wechatpay.png"
+        }
+    ],
+    "blog/bg": [
+        {
+            "file": "blog/bg/bg4.jpg",
+            "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg4.jpg",
+            "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg4.jpg"
+        },
+        {
+            "file": "blog/bg/bg1.jpg",
+            "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg1.jpg",
+            "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg1.jpg"
+        },
+        {
+            "file": "blog/bg/bg3.jpg",
+            "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg3.jpg",
+            "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg3.jpg"
+        },
+        {
+            "file": "blog/bg/bg2.jpg",
+            "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/bg/bg2.jpg",
+            "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/bg/bg2.jpg"
+        }
+    ]
+}
