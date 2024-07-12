@@ -33,6 +33,13 @@
             "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/svg/一休-上班摸鱼中.svg"
         }
     ],
+    "blog/post": [
+        {
+            "file": "blog/post/us.kg504bug.png",
+            "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/post/us.kg504bug.png",
+            "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/post/us.kg504bug.png"
+        }
+    ],
     "blog/images": [
         {
             "file": "blog/images/error_404.gif",
