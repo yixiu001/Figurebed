@@ -52,6 +52,11 @@
     ],
     "blog/images": [
         {
+            "file": "blog/images/code.jpg",
+            "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/images/code.jpg",
+            "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/code.jpg"
+        },
+        {
             "file": "blog/images/error_404.gif",
             "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/images/error_404.gif",
             "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/error_404.gif"
