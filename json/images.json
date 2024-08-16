@@ -16,11 +16,6 @@
             "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/youtube/美区AppleID.webp"
         },
         {
-            "file": "youtube/MF上网.jpg",
-            "https_url": "https://github.com/yixiu001/Figurebed/raw/main/youtube/MF上网.jpg",
-            "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/youtube/MF上网.jpg"
-        },
-        {
             "file": "youtube/FreeServ00-re.png",
             "https_url": "https://github.com/yixiu001/Figurebed/raw/main/youtube/FreeServ00-re.png",
             "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/youtube/FreeServ00-re.png"
@@ -34,6 +29,11 @@
             "file": "youtube/无限免费邮箱.png",
             "https_url": "https://github.com/yixiu001/Figurebed/raw/main/youtube/无限免费邮箱.png",
             "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/youtube/无限免费邮箱.png"
+        },
+        {
+            "file": "youtube/KX上网.jpg",
+            "https_url": "https://github.com/yixiu001/Figurebed/raw/main/youtube/KX上网.jpg",
+            "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/youtube/KX上网.jpg"
         }
     ],
     "blog/svg": [
