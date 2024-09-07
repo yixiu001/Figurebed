@@ -33,5 +33,10 @@
         "file": "youtube/KX上网.jpg",
         "https_url": "https://github.com/yixiu001/Figurebed/raw/main/youtube/KX上网.jpg",
         "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/youtube/KX上网.jpg"
+    },
+    {
+        "file": "youtube/jisousoso.jpg",
+        "https_url": "https://github.com/yixiu001/Figurebed/raw/main/youtube/jisousoso.jpg",
+        "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/youtube/jisousoso.jpg"
     }
 ]
