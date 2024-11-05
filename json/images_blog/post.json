@@ -30,6 +30,11 @@
         "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/post/ssh.jpg"
     },
     {
+        "file": "blog/post/telegrambg.jpg",
+        "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/post/telegrambg.jpg",
+        "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/post/telegrambg.jpg"
+    },
+    {
         "file": "blog/post/us.kg504bug.png",
         "https_url": "https://github.com/yixiu001/Figurebed/raw/main/blog/post/us.kg504bug.png",
         "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/post/us.kg504bug.png"
