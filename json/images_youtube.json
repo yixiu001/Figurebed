@@ -1,5 +1,10 @@
 [
     {
+        "file": "youtube/gnamedomain.jpg",
+        "https_url": "https://github.com/yixiu001/Figurebed/raw/main/youtube/gnamedomain.jpg",
+        "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/youtube/gnamedomain.jpg"
+    },
+    {
         "file": "youtube/serv00singbox.jpg",
         "https_url": "https://github.com/yixiu001/Figurebed/raw/main/youtube/serv00singbox.jpg",
         "cdn_url": "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/youtube/serv00singbox.jpg"
